@@ -69,6 +69,75 @@ var MapsLib = {
     $(":checkbox").attr("checked", "checked");
     $("#result_count").hide();
 
+    //-----custom initializers-------
+
+    $("#cbChex").attr("checked", false);
+    $("#cbChecksIncl").attr("checked", false);
+    $("#deposit-slider").slider({
+        orientation: "horizontal",
+        range: true,
+        min: 0,
+        max: 100,
+        values: [0, 100],
+        step: 5,
+        slide: function (event, ui) {
+            $("#deposit-selected-start").html(ui.values[0]);
+            $("#deposit-selected-end").html(ui.values[1]);
+        },
+        stop: function(event, ui) {
+          MapsLib.doSearch();
+        }
+    });
+    $("#monthly-slider").slider({
+        orientation: "horizontal",
+        range: true,
+        min: 0,
+        max: 100,
+        values: [0, 100],
+        step: 5,
+        slide: function (event, ui) {
+            $("#monthly-selected-start").html(ui.values[0]);
+            $("#monthly-selected-end").html(ui.values[1]);
+        },
+        stop: function(event, ui) {
+          MapsLib.doSearch();
+        }
+    });
+
+    $("#overdraft-slider").slider({
+        orientation: "horizontal",
+        range: true,
+        min: 0,
+        max: 100,
+        values: [0, 100],
+        step: 5,
+        slide: function (event, ui) {
+            $("#overdraft-selected-start").html(ui.values[0]);
+            $("#overdraft-selected-end").html(ui.values[1]);
+        },
+        stop: function(event, ui) {
+          MapsLib.doSearch();
+        }
+    });
+
+    $("#bounced-slider").slider({
+        orientation: "horizontal",
+        range: true,
+        min: 0,
+        max: 100,
+        values: [0, 100],
+        step: 5,
+        slide: function (event, ui) {
+            $("#bounced-selected-start").html(ui.values[0]);
+            $("#bounced-selected-end").html(ui.values[1]);
+        },
+        stop: function(event, ui) {
+          MapsLib.doSearch();
+        }
+    });
+
+    //-----end of custom initializers-------
+
     //run the default search
     MapsLib.doSearch();
   },
@@ -82,8 +151,27 @@ var MapsLib = {
 
     //-----custom filters-------
 
-    whereClause += " AND 'Minimum Opening Deposit' >= '" + $("#age-selected-start").html() + "'";
-    whereClause += " AND 'Minimum Opening Deposit' <= '" + $("#age-selected-end").html() + "'";
+    var type_column = "'Open Accounts for customers with ChexSystems History'";
+    if ( $("#cbChex").is(':checked')) whereClause += " AND " + type_column + "= 'Yes'";
+
+    type_column = "'Checks included'";
+    if ( $("#cbChecksIncl").is(':checked')) whereClause += " AND " + type_column + "= 'Yes'";
+
+    type_column = "'Minimum Opening Deposit'";
+    whereClause += " AND " + type_column + " >= '" + $("#deposit-selected-start").html() + "'";
+    whereClause += " AND " + type_column + " <= '" + $("#deposit-selected-end").html() + "'";
+
+    type_column = "'Monthly Fee'";
+    whereClause += " AND " + type_column + " >= '" + $("#monthly-selected-start").html() + "'";
+    whereClause += " AND " + type_column + " <= '" + $("#monthly-selected-end").html() + "'";
+
+    type_column = "'Overdraft Fees'";
+    whereClause += " AND " + type_column + " >= '" + $("#overdraft-selected-start").html() + "'";
+    whereClause += " AND " + type_column + " <= '" + $("#overdraft-selected-end").html() + "'";
+
+    type_column = "'Bounced Check Fee'";
+    whereClause += " AND " + type_column + " >= '" + $("#bounced-selected-start").html() + "'";
+    whereClause += " AND " + type_column + " <= '" + $("#bounced-selected-end").html() + "'";
 
     //-------end of custom filters--------
 
@@ -119,6 +207,7 @@ var MapsLib = {
       });
     }
     else { //search without geocoding callback
+      console.log(whereClause);
       MapsLib.submitSearch(whereClause, map);
     }
   },
@@ -260,4 +349,10 @@ var MapsLib = {
     if (text == undefined) return '';
     return decodeURIComponent(text);
   }
+
+  //-----custom functions-------
+  // NOTE: if you add custom functions, make sure to append each one with a comma, except for the last one.
+  // This also applies to the convertToPlainString function above
+
+  //-----end of custom functions-------
 }
