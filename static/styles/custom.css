@@ -4,9 +4,9 @@ a { color: #4B58A6; }
   max-width: none;
 }
 
-.filter-box { 
-  height: 15px; 
-  width: 15px;  
+.filter-box {
+  height: 15px;
+  width: 15px;
   display: inline-block;
   *border-right-width: 2px;
   *border-bottom-width: 2px;
@@ -15,7 +15,7 @@ a { color: #4B58A6; }
           border-radius: 5px;
   -webkit-background-clip: padding-box;
      -moz-background-clip: padding;
-          background-clip: padding-box; 
+          background-clip: padding-box;
 }
 
 .filter-yellow { background-color: #FBF358; }
@@ -30,5 +30,10 @@ canvas {-ms-touch-action: double-tap-zoom;}
 .popup-marker-data p { margin-bottom: 5px; }
 .popup-marker-data hr { margin: 5px 0 5px 0; }
 .popup-marker-data .dl-horizontal { margin-top: 5px; }
-.popup-marker-data dt { width: 105px; }	
-.popup-marker-data dd { margin-left: 115px; }	
+.popup-marker-data dt { width: 105px; }
+.popup-marker-data dd { margin-left: 115px; }
+
+#search_map { right: 0;}
+body {
+  padding-top: 60px;
+}
