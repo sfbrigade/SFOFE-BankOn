@@ -85,29 +85,95 @@
             <input class='btn btn-primary' id='search' type='button' value='Search' />
             <button class='btn' id='reset'>Reset</button>
           </div>
+
           <div class='well'>
             <!-- Once you decide what filter you want, place the HTML code here. The section in the maps_lib.js is also marked. Once you're done, feel free to delete this explanatory section.-->
 
             <h4>
               Minimum Opening Deposit
               <small>
-                <span id='age-selected-start'>0</span>
+                between
+                <span id='deposit-selected-start'>0</span>
                 -
-                <span id='age-selected-end'>100</span>
+                <span id='deposit-selected-end'>100</span>
               </small>
             </h4>
-            <div id='age-slider'></div>
+            <div id='deposit-slider'></div>
             <span class='pull-left'>$0</span>
             <span class='pull-right'>$100</span>
           </div>
+
+          <div class='well'>
+            <h4>
+              Monthly Fee
+              <small>
+                between
+                <span id='monthly-selected-start'>0</span>
+                -
+                <span id='monthly-selected-end'>100</span>
+              </small>
+            </h4>
+            <div id='monthly-slider'></div>
+            <span class='pull-left'>$0</span>
+            <span class='pull-right'>$100</span>
+          </div>
+
+          <div class='well'>
+            <h4>
+              Overdraft Fee
+              <small>
+                between
+                <span id='overdraft-selected-start'>0</span>
+                -
+                <span id='overdraft-selected-end'>100</span>
+              </small>
+            </h4>
+            <div id='overdraft-slider'></div>
+            <span class='pull-left'>$0</span>
+            <span class='pull-right'>$100</span>
+          </div>
+
+          <div class='well'>
+            <h4>
+              Bounced Check Fee
+              <small>
+                between
+                <span id='bounced-selected-start'>0</span>
+                -
+                <span id='bounced-selected-end'>100</span>
+              </small>
+            </h4>
+            <div id='bounced-slider'></div>
+            <span class='pull-left'>$0</span>
+            <span class='pull-right'>$100</span>
+          </div>
+
+          <div class='well'>
+            <h4>Options</h4>
+            <ul class='inputs-list unstyled'>
+              <li>
+                <label class='checkbox inline'>
+                  <input type='checkbox' id='cbChex' />
+                  Open account for customers with Chex Systems history
+                </label>
+              </li>
+              <li>
+                <label class='checkbox inline'>
+                  <input type='checkbox' id='cbChecksIncl' />
+                  Checks included
+                </label>
+
+              </li>
+            </ul>
+          </div>
+
           <p class='alert alert-info lead' id='result_count'></p>
 
           <div id='map_canvas'></div>
 
         </div>
       </div>
-
-      
+      <!-- Right Sidebar -->
       <div id="right">
         <p>
           <span>participating banks and credit unions</span>
@@ -155,6 +221,7 @@
           <a href="http://bankonsanfrancisco.com/wp-content/uploads/2011/09/Wells_fargo.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://bankonsanfrancisco.com/wp-content/uploads/2011/09/Wells_fargo.pdf']);" target="_blank">Wells Fargo</a>
         </p>
       </div>
+      <!-- footer -->
       <div>
         <a href="http://sfofe.org">
           <img src="http://bankonsanfrancisco.com/wp-content/themes/sf_bankon_v1/images/logo.png"></a>
@@ -167,68 +234,53 @@
     </div>
   </div>
 </body>
-  <script type='text/javascript'>
-            //<![CDATA[
-              $(window).resize(function () {
-                var h = $(window).height(),
-                  offsetTop = 90; // Calculate the top offset
+    <script type='text/javascript'>
+      //<![CDATA[
+        $(window).resize(function () {
+          var h = $(window).height(),
+            offsetTop = 90; // Calculate the top offset
 
-                $('#map_canvas').css('height', (600));
-              }).resize();
+          $('#map_canvas').css('height', (h - 600));
+        }).resize();
 
-              $(function() {
-                MapsLib.initialize();
-                $("#search_address").geocomplete();
+        $(function() {
+          MapsLib.initialize();
+          $("#search_address").geocomplete();
 
-                $(':checkbox').click(function(){
-                  MapsLib.doSearch();
-                });
+          $(':checkbox').click(function(){
+            MapsLib.doSearch();
+          });
 
-                $(':radio').click(function(){
-                  MapsLib.doSearch();
-                });
+          $(':radio').click(function(){
+            MapsLib.doSearch();
+          });
 
-                $('#search_radius').change(function(){
-                  MapsLib.doSearch();
-                });
+          $('#search_radius').change(function(){
+            MapsLib.doSearch();
+          });
 
-                $('#search').click(function(){
-                  MapsLib.doSearch();
-                });
+          $('#search').click(function(){
+            MapsLib.doSearch();
+          });
 
-                $('#find_me').click(function(){
-                  MapsLib.findMe();
+          $('#find_me').click(function(){
+            MapsLib.findMe();
+            return false;
+          });
+
+          $('#reset').click(function(){
+            $.address.parameter('address','');
+            MapsLib.initialize();
+            return false;
+          });
+
+          $(":text").keydown(function(e){
+              var key =  e.keyCode ? e.keyCode : e.which;
+              if(key == 13) {
+                  $('#search').click();
                   return false;
-                });
-
-                $('#reset').click(function(){
-                  $.address.parameter('address','');
-                  MapsLib.initialize();
-                  return false;
-                });
-
-                $(":text").keydown(function(e){
-                    var key =  e.keyCode ? e.keyCode : e.which;
-                    if(key == 13) {
-                        $('#search').click();
-                        return false;
-                    }
-                });
-                $("#age-slider").slider({
-                  orientation: "horizontal",
-                  range: true,
-                  min: 0,
-                  max: 100,
-                  values: [0, 100],
-                  step: 5,
-                  slide: function (event, ui) {
-                      $("#age-selected-start").html(ui.values[0]);
-                      $("#age-selected-end").html(ui.values[1]);
-                  },
-                  stop: function(event, ui) {
-                    MapsLib.doSearch();
-                  }
-              });
-              });
-            //]]> </script>
-</html>
+              }
+          });
+        });
+      //]]> </script>
+  </html>
