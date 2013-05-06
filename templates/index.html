@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-US">
-<head></head>
-  <meta charset="UTF-8" />
+<head>
   <title>Bank On San Francisco | San Francisco</title>
-  <link rel="stylesheet" href="styles/custom.css"/>
+  <!-- <link rel="stylesheet" href="styles/custom.css"/>
+  -->
   <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css"/>
-  <link rel="stylesheet" href="styles/bootstrap.spacelab.min.css"/>
+  <!-- <link rel="stylesheet" href="styles/bootstrap.spacelab.min.css"/>
+  -->
   <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
   <script src="source/jquery.js"></script>
   <script src="source/bootstrap.js"></script>
@@ -18,95 +19,104 @@
 </head>
 
 <body>
-  <div>
+  <!-- Navigation -->
+  <div class="navbar-wrapper">
+    <div class="container">
+      <div class="navbar navbar-inverse">
+        <div class="navbar-inner">
+          <ul class="nav">
+            <li>
+              <a class="brand" href="#">BankOn</a>
+            </li>
+            <li>
+              <a href="#why">Why you need a bank account</a>
+            </li>
+            <li>
+              <a href="#how">How to open an account</a>
+            </li>
+            <li>
+              <a href="#managing">Managing your Money</a>
+            </li>
+            <li>
+              <a href="http://bankonsanfrancisco.com/partner/">Partnering with BankOn</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
     <!-- center image -->
     <div>
       <a href="/index">
         <img src="http://bankonsanfrancisco.com/wp-content/themes/sf_bankon_v1/images/headhome.jpg" id="headhome"></a>
       <img src="http://bankonsanfrancisco.com/wp-content/themes/sf_bankon_v1/images/headright.png" id="headright"></div>
-    <!-- Navigation -->
-    <div id="nav">
-      <div id="navwhy" class="">
-        <a href="http://bankonsanfrancisco.com/why/">Why you need a bank account</a>
-      </div>
-      <div id="navhow" class="">
-        <a href="http://bankonsanfrancisco.com/how/">How to open an account</a>
-      </div>
-      <div id="navmanaging" class="">
-        <a href="http://bankonsanfrancisco.com/managing/">Managing your Money</a>
-      </div>
-      <div id="navpartner" class="">
-        <a href="http://bankonsanfrancisco.com/partner/">Partnering with BankOn</a>
-      </div>
-    </div>
-    <!-- Left Sidebar -->
-    <div id="left">
-      <img src="http://bankonsanfrancisco.com/wp-content/themes/sf_bankon_v1/images/leftimghome.png" id="leftimghome"></div>
-    <!-- Right Sidebar -->
-    <div id="right">
-      <p>
-        <span>participating banks and credit unions</span>
-      </p>
-      <p>
-        <a href="http://bankonsanfrancisco.com/wp-content/uploads/2011/09/BANK_OF_AMERICA.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://bankonsanfrancisco.com/wp-content/uploads/2011/09/BANK_OF_AMERICA.pdf']);" target="_blank">Bank of America</a>
-      </p>
-      <p>
-        <a href="http://bankonsanfrancisco.com/wp-content/uploads/2011/09/BANK_OF_WEST.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://bankonsanfrancisco.com/wp-content/uploads/2011/09/BANK_OF_WEST.pdf']);" target="_blank">Bank of the West</a>
-      </p>
-      <p>
-        <a href="http://bankonsanfrancisco.com/wp-content/uploads/2011/09/CHASE.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://bankonsanfrancisco.com/wp-content/uploads/2011/09/CHASE.pdf']);" target="_blank">Chase</a>
-      </p>
-      <p>
-        <a href="http://bankonsanfrancisco.com/wp-content/uploads/2011/09/CITIBANK.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://bankonsanfrancisco.com/wp-content/uploads/2011/09/CITIBANK.pdf']);" target="_blank">Citibank</a>
-      </p>
-      <p>
-        <a href="http://bankonsanfrancisco.com/wp-content/uploads/2011/09/Community_Trust.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://bankonsanfrancisco.com/wp-content/uploads/2011/09/Community_Trust.pdf']);" target="_blank">Community Trust, A Division of Self-Help FCU</a>
-      </p>
-      <p>
-        <a href="http://bankonsanfrancisco.com/wp-content/uploads/2012/06/Northeast_Community_Federal_Credit_Union.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://bankonsanfrancisco.com/wp-content/uploads/2012/06/Northeast_Community_Federal_Credit_Union.pdf']);" target="_blank">Northeast Community Federal Credit Union</a>
-      </p>
-      <p>
-        <a href="http://bankonsanfrancisco.com/wp-content/uploads/2011/09/Patelco_Credit_Union.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://bankonsanfrancisco.com/wp-content/uploads/2011/09/Patelco_Credit_Union.pdf']);" target="_blank">Patelco Credit Union</a>
-      </p>
-      <p>
-        <a href="http://bankonsanfrancisco.com/wp-content/uploads/2011/09/Redwood_Credit_Union.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://bankonsanfrancisco.com/wp-content/uploads/2011/09/Redwood_Credit_Union.pdf']);" target="_blank">Redwood Credit Union</a>
-      </p>
-      <p>
-        <a href="http://bankonsanfrancisco.com/wp-content/uploads/2011/09/San_Francisco_Federal_Credit_Union.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://bankonsanfrancisco.com/wp-content/uploads/2011/09/San_Francisco_Federal_Credit_Union.pdf']);" target="_blank">San Francisco Federal Credit Union</a>
-      </p>
-      <p>
-        <a href="http://bankonsanfrancisco.com/wp-content/uploads/2011/09/Spectrum_Federal_Credit_Union.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://bankonsanfrancisco.com/wp-content/uploads/2011/09/Spectrum_Federal_Credit_Union.pdf']);" target="_blank">Spectrum Federal Credit Union</a>
-      </p>
-      <p>
-        <a href="http://bankonsanfrancisco.com/wp-content/uploads/2012/02/Union_Bank.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://bankonsanfrancisco.com/wp-content/uploads/2012/02/Union_Bank.pdf']);" target="_blank">Union Bank</a>
-      </p>
-      <p>
-        <a href="http://bankonsanfrancisco.com/wp-content/uploads/2011/09/East_West_Bank.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://bankonsanfrancisco.com/wp-content/uploads/2011/09/East_West_Bank.pdf']);" target="_blank">East West Bank</a>
-      </p>
-      <p>
-        <a href="http://bankonsanfrancisco.com/wp-content/uploads/2011/09/US_Bank.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://bankonsanfrancisco.com/wp-content/uploads/2011/09/US_Bank.pdf']);" target="_blank">US Bank</a>
-      </p>
-      <p>
-        <a href="http://bankonsanfrancisco.com/wp-content/uploads/2011/09/Wells_fargo.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://bankonsanfrancisco.com/wp-content/uploads/2011/09/Wells_fargo.pdf']);" target="_blank">Wells Fargo</a>
-      </p>
-    </div>
-    <!-- Content Text -->
-    <div>
-      <div>
-        <img src='http://bankonsanfrancisco.com/wp-content/themes/sf_bankon_v1/images/hometext.gif' alt='' />
-      </div>
-      <div id='vert' class=''></div>
-      <div class='col1' style="" id="">
-        <p> <em>Financially, a bank account changes everything. It&#8217;s a doorway to savings, and financial security. It offers protection from the high fees charged by check cashing companies.</em> 
-        </p>
-        <p> <em>Bank On San Francisco makes it easy for you to get a bank account &#8211; even if you&#8217;ve had problems with an account in the past, have never had an account before, or are not a U.S citizen.</em> 
-        </p>
-      </div>
-    </div>
+  </div>
 
-    <!-- Map -->
-    <div id="Map">
-      <hr>
+  <!-- Right Sidebar -->
+  <div id="right">
+
+    <span>participating banks and credit unions</span>
+    <li>
+      <a href="http://bankonsanfrancisco.com/wp-content/uploads/2011/09/BANK_OF_AMERICA.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://bankonsanfrancisco.com/wp-content/uploads/2011/09/BANK_OF_AMERICA.pdf']);" target="_blank">Bank of America</a>
+    </li>
+    <li>
+      <a href="http://bankonsanfrancisco.com/wp-content/uploads/2011/09/BANK_OF_WEST.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://bankonsanfrancisco.com/wp-content/uploads/2011/09/BANK_OF_WEST.pdf']);" target="_blank">Bank of the West</a>
+    </li>
+    <li>
+      <a href="http://bankonsanfrancisco.com/wp-content/uploads/2011/09/CHASE.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://bankonsanfrancisco.com/wp-content/uploads/2011/09/CHASE.pdf']);" target="_blank">Chase</a>
+    </li>
+    <li>
+      <a href="http://bankonsanfrancisco.com/wp-content/uploads/2011/09/CITIBANK.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://bankonsanfrancisco.com/wp-content/uploads/2011/09/CITIBANK.pdf']);" target="_blank">Citibank</a>
+    </li>
+    <li>
+      <a href="http://bankonsanfrancisco.com/wp-content/uploads/2011/09/Community_Trust.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://bankonsanfrancisco.com/wp-content/uploads/2011/09/Community_Trust.pdf']);" target="_blank">Community Trust, A Division of Self-Help FCU</a>
+    </li>
+    <li>
+      <a href="http://bankonsanfrancisco.com/wp-content/uploads/2012/06/Northeast_Community_Federal_Credit_Union.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://bankonsanfrancisco.com/wp-content/uploads/2012/06/Northeast_Community_Federal_Credit_Union.pdf']);" target="_blank">Northeast Community Federal Credit Union</a>
+    </li>
+    <li>
+      <a href="http://bankonsanfrancisco.com/wp-content/uploads/2011/09/Patelco_Credit_Union.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://bankonsanfrancisco.com/wp-content/uploads/2011/09/Patelco_Credit_Union.pdf']);" target="_blank">Patelco Credit Union</a>
+    </li>
+    <li>
+      <a href="http://bankonsanfrancisco.com/wp-content/uploads/2011/09/Redwood_Credit_Union.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://bankonsanfrancisco.com/wp-content/uploads/2011/09/Redwood_Credit_Union.pdf']);" target="_blank">Redwood Credit Union</a>
+    </li>
+    <li>
+      <a href="http://bankonsanfrancisco.com/wp-content/uploads/2011/09/San_Francisco_Federal_Credit_Union.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://bankonsanfrancisco.com/wp-content/uploads/2011/09/San_Francisco_Federal_Credit_Union.pdf']);" target="_blank">San Francisco Federal Credit Union</a>
+    </li>
+    <li>
+      <a href="http://bankonsanfrancisco.com/wp-content/uploads/2011/09/Spectrum_Federal_Credit_Union.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://bankonsanfrancisco.com/wp-content/uploads/2011/09/Spectrum_Federal_Credit_Union.pdf']);" target="_blank">Spectrum Federal Credit Union</a>
+    </li>
+    <li>
+      <a href="http://bankonsanfrancisco.com/wp-content/uploads/2012/02/Union_Bank.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://bankonsanfrancisco.com/wp-content/uploads/2012/02/Union_Bank.pdf']);" target="_blank">Union Bank</a>
+    </li>
+    <li>
+      <a href="http://bankonsanfrancisco.com/wp-content/uploads/2011/09/East_West_Bank.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://bankonsanfrancisco.com/wp-content/uploads/2011/09/East_West_Bank.pdf']);" target="_blank">East West Bank</a>
+    </li>
+    <li>
+      <a href="http://bankonsanfrancisco.com/wp-content/uploads/2011/09/US_Bank.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://bankonsanfrancisco.com/wp-content/uploads/2011/09/US_Bank.pdf']);" target="_blank">US Bank</a>
+    </li>
+    <li>
+      <a href="http://bankonsanfrancisco.com/wp-content/uploads/2011/09/Wells_fargo.pdf" onclick="javascript:_gaq.push(['_trackEvent','download','http://bankonsanfrancisco.com/wp-content/uploads/2011/09/Wells_fargo.pdf']);" target="_blank">Wells Fargo</a>
+    </li>
+  </div>
+  <!-- Content Text -->
+  <div>
+    <div>
+      <img src='http://bankonsanfrancisco.com/wp-content/themes/sf_bankon_v1/images/hometext.gif' alt='' />
+    </div>
+    <div id='vert' class=''></div>
+    <div class='col1' style="" id="">
+      <p> <em>Financially, a bank account changes everything. It&#8217;s a doorway to savings, and financial security. It offers protection from the high fees charged by check cashing companies.</em> 
+      </p>
+      <p> <em>Bank On San Francisco makes it easy for you to get a bank account &#8211; even if you&#8217;ve had problems with an account in the past, have never had an account before, or are not a U.S citizen.</em> 
+      </p>
+    </div>
+  </div>
+
+  <!-- Map -->
+  <div id="Map">
+    <div class="span4">
       <div class='well'>
         <h4>
           Address
@@ -212,29 +222,32 @@
       </div>
 
       <p class='alert alert-info lead' id='result_count'></p>
-
-      <div id='map_canvas'></div>
-
     </div>
-    <!-- footer -->
-    <div id="foot">
-      <a href="http://sfofe.org">
-        <img src="http://bankonsanfrancisco.com/wp-content/themes/sf_bankon_v1/images/logo.png"></a>
-      <div>
-        <a href="/iframes/iframe-signup?iframe" class="signup">sign up for ofe news</a>
-        <a href="/iframes/iframe-accessibility?iframe" class="access">accessibility policy</a>
-        <a href="/iframes/iframe-privacy?iframe" class="privacy">privacy policy</a>
+    <div class="span8">
+      <div id='map_canvas'></div>
+      <div class='well'>
+        <div id='results_list'></div>
       </div>
     </div>
   </div>
+  <!-- footer -->
+  <div class="container">
+    <a href="http://sfofe.org">
+      <img src="http://bankonsanfrancisco.com/wp-content/themes/sf_bankon_v1/images/logo.png"></a>
+    <div>
+      <a href="" class="signup">sign up for ofe news</a>
+      <a href="" class="access">accessibility policy</a>
+      <a href="" class="privacy">privacy policy</a>
+    </div>
+  </div>
 </body>
-<script type='text/javascript'>
+  <script type='text/javascript'>
       //<![CDATA[
         $(window).resize(function () {
           var h = $(window).height(),
             offsetTop = 90; // Calculate the top offset
 
-          $('#map_canvas').css('height', (h - 600));
+          $('#map_canvas').css('height', (1000));
         }).resize();
 
         $(function() {
