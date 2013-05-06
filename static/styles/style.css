@@ -266,7 +266,7 @@ overflow:visible;
     }
       #mainouter2 #center #content {
         float:left;
-        margin:65px 0px 0px 30px;
+        margin:65px 30px 30px 30px;
       }
       #mainouter2 #center #content p {
         margin-top:15px;
