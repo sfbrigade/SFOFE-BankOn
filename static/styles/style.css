@@ -1,0 +1,409 @@
+/*
+Theme Name: SF Bank On
+Theme URI: http://wordpress.org/
+Description: Hi!
+Author: Grand SF
+Version: 1.0
+*/
+
+
+/* =Reset default browser CSS. Based on work by Eric Meyer: http://meyerweb.com/eric/tools/css/reset/index.html
+-------------------------------------------------------------- */
+
+@charset "utf-8";
+
+/* Reset Stylesheet - do not reset table elements */
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+* {margin: 0;}
+
+/* bits from: https://github.com/necolas/normalize.css/blob/master/normalize.css */
+html {
+    font-size: 100%; /* 1 */
+    overflow-y: scroll; /* 2 */
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* 3 */
+    -webkit-text-size-adjust: 100%; /* 4 */
+    -ms-text-size-adjust: 100%; /* 4 */
+}
+a:active {outline: none;}
+a:focus {-moz-outline-style: none;}
+
+/* END - reset */
+body {
+  background:#f4f2f1 url(../images/mainouterbg.jpg) center top no-repeat;
+  /*background-position:230px -10px;*/
+  /*
+  27
+  */
+}
+img {
+  float:left;
+  border:0px;
+}
+
+
+/* define global navigation and framework elements */
+#mainouter {
+  width:100%;
+  height:100%;
+}
+  #mainouter2 {
+    /*width:1026px;
+    height:713px;
+    */
+    /*width:1548px;*/
+    width:1026px;   /* this, along w/ all the "left:" positioning of the "#mainouter2 #head", "#mainouter2 #left",  "#mainouter2 #nav", "#mainouter2 #center", "#mainouter2 #right", "#mainouter2 #right2" let the mainouter2bg.png be
+    1548px wide but since #mainouter2 is only 1026px wide (and overflow:visible) it lets the background bleed through on the left and right w/o forcing the browser to be 1548 wide in order to get rid of horiz scroll bars*/
+    height:775px;
+    margin-left:auto;
+    margin-right:auto;
+
+    position:relative;
+    
+  }
+    #maininner{
+/*position:absolute;*/
+border:1px solid #ff0000;
+      width:1026px;
+overflow:visible;
+      /*height:775px;*/
+      /*z-index:0;*/
+      /*background:url(../images/mainouter2bg.png) center top no-repeat;*/
+      /*left:-257px;*/
+      /*background-position:-257px -10px;*/
+    }
+    #mainouter2 #head {
+      position:absolute;
+      width:824px;
+      height:327px;
+      left:140px;
+      /*left:424px;*/
+    }
+      #mainouter2 #head img#headhome {
+        width:700px;
+        height:353px;
+        position:absolute;
+        top:0px;
+        left:0px;
+      }
+      #mainouter2 #head img#headright {
+        width:105px;
+        height:66px;
+        cursor:pointer;
+        position:absolute;
+        bottom:25px;
+        right:0px;
+      }
+    #mainouter2 #left {
+      width:167px;
+      position:absolute;
+      top:272px;
+      left: -27px;
+      z-index:1;
+    }
+      #mainouter2 #left div {
+        width:167px;
+        text-align:center;
+        padding-top:10px;
+        float:left;
+      }
+      #mainouter2 #left div span {
+        text-transform:uppercase;
+        font: bold 14px/18px arial;
+        margin-top:20px;
+      }
+      #mainouter2 #left div p {
+        font: italic 12px/16px "Times New Roman", Times, serif, times new roman, times, roman, times roman;
+        color:#252525;
+        width:96px;
+        margin:0px auto;
+        padding-top:5px;
+      }
+    #mainouter2 #nav {
+      width:835px;
+      height:64px;
+      left:140px;
+      /*left:424px;*/
+      top:318px;
+      position:absolute;
+      z-index:100;
+      cursor:pointer;
+      padding:6px 0px 8px 25px;
+      padding:8px 0px 8px 25px\9;
+      background:url(../images/nav.png) top no-repeat;
+    }
+      /* NAV - START */
+      #navwhy a { 
+        display: block; 
+        width: 205px; 
+        height: 10px; 
+        background: transparent url(../images/navtxt.png) no-repeat; 
+        position:absolute;left:17px;top:13px;
+        background-position:0px -0px;
+      }
+      #navwhy a:hover { 
+        background-position: -0px -11px;
+      }
+      #navwhy.active a { 
+        display: block; 
+        width: 205px; 
+        height: 10px; 
+        background: transparent url(../images/navtxt.png) no-repeat; 
+        position:absolute;left:17px;top:13px;
+        background-position: -0px -11px;
+      }
+
+      #navhow a { 
+        display: block; 
+        width: 167px; 
+        height: 10px; 
+        background: transparent url(../images/navtxt.png) no-repeat; 
+        position:absolute;left:261px;top:13px;
+        background-position:0px -24px;
+      }
+      #navhow a:hover { 
+        background-position: -0px -37px;
+      }
+      #navhow.active a { 
+        display: block; 
+        width: 167px; 
+        height: 10px; 
+        background: transparent url(../images/navtxt.png) no-repeat; 
+        position:absolute;left:261px;top:13px;
+        background-position: -0px -37px;
+      }
+
+      #navmanaging a { 
+        display: block; 
+        width: 151px; 
+        height: 10px; 
+        background: transparent url(../images/navtxt.png) no-repeat; 
+        position:absolute;left:466px;top:13px;
+        background-position:0px -51px;
+      }
+      #navmanaging a:hover { 
+        background-position: -0px -65px;
+      }
+      #navmanaging.active a { 
+        display: block; 
+        width: 151px; 
+        height: 10px; 
+        background: transparent url(../images/navtxt.png) no-repeat; 
+        position:absolute;left:466px;top:13px;
+        background-position: -0px -65px;
+      }
+
+
+      #navpartner a { 
+        display: block; 
+        width: 158px; 
+        height: 10px; 
+        background: transparent url(../images/navtxt.png) no-repeat; 
+        position:absolute;left:656px;top:13px;
+        background-position:0px -80px;
+      }
+      #navpartner a:hover { 
+        background-position: -0px -94px;
+      }
+      #navpartner.active a { 
+        display: block; 
+        width: 158px; 
+        height: 10px; 
+        background: transparent url(../images/navtxt.png) no-repeat; 
+        position:absolute;left:656px;top:13px;
+        background-position: -0px -94px;
+      }
+      /* NAV - END */
+      #mainouter2 #nav a {
+        color:#baec75;
+        font: bold 11px/16px arial;
+        margin-right:30px;
+        margin-right:40px\9;
+        text-decoration:none;
+        text-transform:uppercase;
+        letter-spacing:1px;
+      }
+      #mainouter2 #nav a:hover {
+        color:#ebf8d8;
+      }
+      #mainouter2 #nav a:active {
+        color:#baec75;
+      }
+      #mainouter2 #nav a.active {
+        color:#ebf8d8;
+      }
+    #mainouter2 #leftimghome {
+      width:167px;
+      height:109px;
+    }
+    #mainouter2 #logo_bo {
+      margin-left:30px;
+    }
+    #mainouter2 #center {
+      width:699px;
+      position:absolute;
+      left:140px;
+      /*left:424px;*/
+      top:307px;
+      z-index:2;
+    }
+      #mainouter2 #center #content {
+        float:left;
+        margin:65px 30px 30px 30px;
+      }
+      #mainouter2 #center #content p {
+        margin-top:15px;
+        font: normal 14px/20px "Times New Roman", Times, serif, times new roman, times, roman, times roman;
+        color: #020000;
+        float:left;
+      }
+      #mainouter2 #center #content p.i {
+        font-style:italic;
+      }
+      #mainouter2 #center #content p.head {
+        font-weight:bold !important;
+        margin-top:10px;
+      }
+      #mainouter2 #center #content div.col1,
+      #mainouter2 #center #content div.col2 {
+        position: relative;
+        z-index: 100;
+      }
+      #mainouter2 #center #content div.col1 {
+        margin-left:5px;
+        margin-top:5px;
+        width:320px;
+        float:left;
+        padding:10px 30px 20px 0px;
+        line-height:20px;
+      }
+        #mainouter2 #center #content div.col1 a, #mainouter2 #center #content div.col2 a {
+          font: italic 12px/18px "Times New Roman", Times, serif, times new roman, times, roman, times roman;
+          color: #000000;
+        }
+        #mainouter2 #center #content div.col1 a:hover, #mainouter2 #center #content div.col2 a:hover {
+          color:#666;
+        }
+      #mainouter2 #center #content div.col2 {
+        width:285px;
+        float:left;
+        padding:15px 10px 0px 0px;
+      }
+      #mainouter2 #center #foot {
+        float:left;
+        position:relative;
+        width:830px;
+        margin-left:-166px;
+        margin-bottom:100px;
+        font-face: "Times New Roman", Times, serif
+      }
+        #mainouter #foot div {
+          position:absolute;
+          left:275px;
+          top:10px;
+        }
+        #mainouter #foot a {
+          cursor:pointer;
+          text-transform:uppercase;
+          font-size:11px;
+          margin-right:40px;
+          color:#020000;
+          text-decoration:none;
+        }
+        #mainouter #foot a:hover {
+          color:#666;
+        }
+        #mainouter2 #center #foot img {
+          width:123px;
+          height:87px;
+          position:absolute;
+          left:104px;
+          top:-50px;
+          z-index:1;
+        }
+    #mainouter2 #right {
+      position:absolute;
+      top:327px;
+      left:838px;
+      /*left:1122px;*/
+      z-index:2;
+      width:100px;
+      padding-left:20px;
+      padding-top:20px;
+      margin-top:30px;
+      line-height:14px;       /* required for the line-height in [#mainouter2 #right span] */
+    }
+      #mainouter2 #right span {
+        font: bold 12px/14px arial;
+        color: #000000;
+        text-transform:uppercase;
+      }
+      #mainouter2 #right p {
+        font: italic 11px/14px "Times New Roman", Times, serif, times new roman, times, roman, times roman;
+        color: #252525;
+        margin-top:3px;
+      }
+      #mainouter2 #right p a {
+        color: #252525;
+        text-decoration: none;
+      }
+    #mainouter2 #right2 {
+      width:70px;
+      padding-left:30px;
+      padding-top:50px;
+      position:absolute;
+      top:327px;
+      left:838px;
+      /*left:1122px;*/
+      z-index:1;
+      margin-top:30px;
+      line-height:14px;       /* required for the line-height in [#mainouter2 #right span] */
+    }
+      #mainouter2 #right2 span {
+        font: bold 9px/14px arial;
+        color: #252525;
+        text-transform:uppercase;
+      }
+      #mainouter2 #right2 span img {
+        position:absolute;
+        left:-50px;
+        top:-0px;
+      }
+      #mainouter2 #right2 span div {
+        position:absolute;
+        top:100px;
+        width:70px;
+      }
+      #mainouter2 #right2 p {
+        font: normal 11px/16px "Times New Roman", Times, serif, times new roman, times, roman, times roman;
+        color: #252525;
+        margin-top:3px;
+      }
+      #mainouter2 #right2 a {
+        font: italic 11px/15px "Times New Roman", Times, serif, times new roman, times, roman, times roman;
+        color: #252525;
+      }
+      #mainouter2 #right2 a:hover {
+        color:#666;
+      }
+div#line_horiz {
+  margin:0px auto;
+  width:125px;
+}
