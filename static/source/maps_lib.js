@@ -255,7 +255,18 @@ var MapsLib = {
       alert("Sorry, we could not find your location.");
     }
   },
-
+  setResultsView: function (e) {
+    var t = $("#view_mode");
+    return e == undefined && (e = "map"),
+    e == "map" ? (
+      $("#list_canvas").hide(),
+      $("#map_canvas").show(),
+      google.maps.event.trigger(map, "resize"),
+      map.setCenter(MapsLib.map_centroid), MapsLib.doSearch(),
+      t.html('Show list <i class="icon-list icon-white"></i>')) : ($("#list_canvas").show(),
+      $("#map_canvas").hide(), t.html('Show map <i class="icon-map-marker icon-white"></i>')
+    ), !1
+  },
   addrFromLatLng: function(latLngPoint) {
     geocoder.geocode({'latLng': latLngPoint}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {

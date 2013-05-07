@@ -18,7 +18,6 @@
 </head>
 
 <body>
-
   <!-- Navigation -->
   <div class="navbar-wrapper">
     <div class="container">
@@ -35,31 +34,346 @@
               <a href="#how">How to open an account</a>
             </li>
             <li>
+              <a href="#map">Find a Bank</a>
+            </li>
+            <li>
               <a href="#managing">Managing your Money</a>
             </li>
             <li>
-              <a href="http://bankonsanfrancisco.com/partner/">Partnering with BankOn</a>
+              <a href="#questions">Q&A</a>
+            </li>
+            <li>
+              <a href="#partner">Partnering with BankOn</a>
             </li>
           </ul>
         </div>
       </div>
     </div>
   </div>
-  <div class="container center">
-    <!-- center image -->
-    <div>
-      <a href="/">
-        <img src="http://bankonsanfrancisco.com/wp-content/themes/sf_bankon_v1/images/headhome.jpg" id="headhome"></a>
-    </div>
-  </div>
+  <!-- Content -->
+  <div id="wrap">
+    <div class="container">
+      <!-- center image -->
+      <div class="container center">
+        <a href="/">
+          <img src="http://bankonsanfrancisco.com/wp-content/themes/sf_bankon_v1/images/headhome.jpg" id="headhome"></a>
+      </div>
 
-  <!-- Right Sidebar -->
-  <div class="container">
-    <div "span12">
-      <hr>
-      <p class="lead">
-        Participating Banks and Credit Unions:
+      <!-- INTRO -->
+      <div id="intro" class="container">
+        <hr>
+        <div class="span2">
+          <p class="lead"> <em>Let BankOn San Francisco help you open an account today.</em>
+          </p>
+        </div>
+        <div class="span8">
+          <p>
+            Financially, a bank account changes everything. It&#8217;s a doorway to savings, and financial security. It offers protection from the high fees charged by check cashing companies.
+          </p>
+          <p>
+            Bank On San Francisco makes it easy for you to get a bank account &#8211; even if you&#8217;ve had problems with an account in the past, have never had an account before, or are not a U.S citizen.
+          </p>
+        </div>
+      </div>
+
+      <!-- WHY -->
+      <div id="why" class="container">
+        <hr>
         <p>
+          By opening a bank account, you take a big step toward financial security. You can keep your money safe, enter the financial mainstream, and start saving for your dreams. The free- or low-cost accounts you get through Bank On make it easier than ever to start.
+        </p>
+        IT COSTS LESS THAN A CHECK-CASHING SERVICE
+        <p>
+          Check-cashing stores charge a steep fee for their service — anywhere from 2.5% to 10% of your monthly income. If you cash two paychecks a month, annual fees could cost you many times more than your own checking account. Also, money orders can cost up to $3 each, making it even more expensive just to get your own money.
+        </p>
+        IT’S SAFE
+        <p>
+          Without a bank account, you and your family face a greater risk of losing your money. You’re more vulnerable to loss, robbery or theft. An earthquake, fire, or other disaster could leave you helpless. A checking or savings account is secure because your money is insured and protected by the Federal Deposit Insurance Corporation (FDIC).
+        </p>
+        IT’S CONVENIENT
+        <p>
+          A checking account lets you deposit and withdraw your money whenever you want. You can pay bills with checks, on the Internet, or by direct debit, and avoid paying for money orders. You can use your debit card to buy things at stores or withdraw money from ATMs across the city, reducing the need to carry cash. You can also keep track of your spending on the Internet, by phone, or at the ATM. If you direct deposit your paycheck, you get instant access to your money. Best of all, this convenience comes at little or no cost.
+        </p>
+        IT HELPS YOU SAVE FOR THE FUTURE
+        <p>
+          If you don’t have a bank account, it’s harder to save money for long-term goals like buying a home, starting a business, or investing in education. Studies show that people with bank accounts are more likely to save, move up the economic ladder, and reach financial security.
+        </p>
+      </div>
+
+      <!-- HOW -->
+      <div id="how" class="container">
+        <hr>
+
+        <p>
+          Just follow these four steps. If you need help finding the best bank or credit union for you, just use our Bank Finder tool.
+        </p>
+        1. FIND A PARTICIPATING BANK OR CREDIT UNION
+        <p>
+          Bank on San Francisco has over 170 partner branches in San Francisco. Use our Bank Finder tool or call 2-1-1 to get the bank or credit union that’s best for you. Or look for the Bank on San Francisco sign at a bank or credit union in your community. View list of participating institutions here.
+        </p>
+        2. ASK ABOUT OPENING AN ACCOUNT THROUGH BANK ON SAN FRANCISCO
+        <p>
+          Our financial partners have created special accounts just for you. They’ll answer your questions and help you open the best one for your needs.
+        </p>
+        3. REMEMBER TO BRING ID
+        <p>
+          You don’t need a Social Security number, but you will need a passport, California ID, Mexican Matricula card, or Guatemalan Consular identification card. And most banks will request a second form of ID, not including cell phone bills. View list of accepted IDs.
+        </p>
+        4. OPEN YOUR NEW ACCOUNT
+        <p>
+          Someone at the bank or credit union will walk you through the entire process. They can even connect you to free money management training classes to help you get the most from your new account.
+        </p>
+      </div>
+
+      <!-- Map -->
+      <div class="container">
+        <div id="map">
+          <hr>
+          <div class="span4">
+            <div class='well'>
+              <h4>
+                Address
+                <small>
+                  (
+                  <a id='find_me' href='#'>find me</a>
+                  )
+                </small>
+              </h4>
+              <input class='input-block-level' id='search_address' placeholder='Enter an address or an intersection' type='text' />
+              <label>
+                within
+                <select class='input-small' id='search_radius'>
+                  <option value='400'>2 blocks</option>
+                  <option value='805'>1/2 mile</option>
+                  <option value='1610'>1 mile</option>
+                  <option value='3220'>2 miles</option>
+                </select>
+              </label>
+              <input class='btn btn-primary' id='search' type='button' value='Search' />
+              <button class='btn' id='reset'>Reset</button>
+              <div class="pull-right">
+                <button class="btn btn-info" id="view_mode">
+                  Show list <i class="icon-list icon-white"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class='well'>
+              <!-- Once you decide what filter you want, place the HTML code here. The section in the maps_lib.js is also marked. Once you're done, feel free to delete this explanatory section.-->
+
+              <h4>
+                Minimum Opening Deposit
+                <small>
+                  between
+                  <span id='deposit-selected-start'>0</span>
+                  -
+                  <span id='deposit-selected-end'>100</span>
+                </small>
+              </h4>
+              <div id='deposit-slider'></div>
+              <span class='pull-left'>$0</span>
+              <span class='pull-right'>$100</span>
+            </div>
+
+            <div class='well'>
+              <h4>
+                Monthly Fee
+                <small>
+                  between
+                  <span id='monthly-selected-start'>0</span>
+                  -
+                  <span id='monthly-selected-end'>100</span>
+                </small>
+              </h4>
+              <div id='monthly-slider'></div>
+              <span class='pull-left'>$0</span>
+              <span class='pull-right'>$100</span>
+            </div>
+
+            <div class='well'>
+              <h4>
+                Overdraft Fee
+                <small>
+                  between
+                  <span id='overdraft-selected-start'>0</span>
+                  -
+                  <span id='overdraft-selected-end'>100</span>
+                </small>
+              </h4>
+              <div id='overdraft-slider'></div>
+              <span class='pull-left'>$0</span>
+              <span class='pull-right'>$100</span>
+            </div>
+
+            <div class='well'>
+              <h4>
+                Bounced Check Fee
+                <small>
+                  between
+                  <span id='bounced-selected-start'>0</span>
+                  -
+                  <span id='bounced-selected-end'>100</span>
+                </small>
+              </h4>
+              <div id='bounced-slider'></div>
+              <span class='pull-left'>$0</span>
+              <span class='pull-right'>$100</span>
+            </div>
+
+            <div class='well'>
+              <h4>Options</h4>
+              <ul class='inputs-list unstyled'>
+                <li>
+                  <label class='checkbox inline'>
+                    <input type='checkbox' id='cbChex' />
+                    Open account for customers with Chex Systems history
+                  </label>
+                </li>
+                <li>
+                  <label class='checkbox inline'>
+                    <input type='checkbox' id='cbChecksIncl' />
+                    Checks included
+                  </label>
+                </li>
+              </ul>
+            </div>
+            <p class='alert alert-info lead' id='result_count'></p>
+          </div>
+          <div class="span7">
+            <div id='map_canvas'></div>
+            <div id='list_canvas' style="display: none;" class="well">
+              <div id='results_list'></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MANAGING YOUR MONEY -->
+      <div class="container">
+        <hr>
+        <p>
+          We want you to have everything you need to get the most out of your new account. That includes education. We’ve partnered with local nonprofit organizations to offer you a wealth of financial education classes, so you know everything you need to know about looking after your money.
+        </p>
+        THERE ARE HUNDREDS OF CLASSES AVAILABLE THROUGHOUT THE YEAR, COVERING SUBJECTS LIKE:
+        <ul>
+          <li>Setting a budget</li>
+          <li>Managing a checking account</li>
+          <li>Improving your credit rating</li>
+          <li>Paying off debt</li>
+          <li>Saving for the future</li>
+        </ul>
+        LEARN IN PERSON
+        <p>
+          To find dozens of free financial education workshops, go to the SF Smart Money Network. It’s a partnership between San Francisco’s Office of Financial Empowerment and several of the area’s leading financial institutions and foundations. Some of the best financial teachers in the Bay Area will show you how to manage your money, lower your debt, and save and invest for your future. See a schedule of upcoming classes in your neighborhood.
+        </p>
+        LEARN ONLINE
+        <p>
+          Online financial classes through the Beehive are easy, convenient and free. Visit their site to learn how to manage your checking account, create and manage a budget for your family, file taxes free online, and much more.
+        </p>
+      </div>
+
+      <!-- Q&A -->
+      <div id="questions" class="container">
+        <hr>
+
+        <p>
+          Here, you’ll find answers to common questions about checking accounts and other financial issues. You’ll also find a list of other helpful resources including career help, food assistance, free tax preparation, and much more. If you don’t find an answer to your question below, or you need additional resources, call 2-1-1 or visit www.211bayarea.org.
+        </p>
+
+        <div class="col1 qa" style="margin-left: 90px;" id="">
+          <p id="1" class="q">
+            A bank told me I am on ChexSystems. What does this mean and how do I get a copy of my ChexSystems report?
+          </p>
+          <p id="2" class="q">
+            I have no idea what my credit is like. Where can I get a copy of my credit report?
+          </p>
+          <p id="3" class="q">
+            I think my identity has been stolen. Where can I find help with identity theft?
+          </p>
+          <p id="4" class="q">
+            I’m having trouble paying my bills. How can I reduce my debt?
+          </p>
+          <p id="5" class="q">
+            I’m worried I might need to declare bankruptcy. Where can I go for help?
+          </p>
+          <p id="6" class="q active">
+            I have a mortgage and now I’m worried about being foreclosed. Who can I call?
+          </p>
+          <p id="7" class="q">
+            I’m a Mexican citizen and I don’t have a California driver’s license. How do I get a Mexican Matricula card?
+          </p>
+          <p id="8" class="q">
+            I am a Guatemalan citizen and I don’t have a California driver’s license. How do I get a Guatemalan Consular ID?
+          </p>
+          <p></p>
+        </div>
+        <div class="col2 ans" style="display: none; top: 314px; right: 80px;" id="answer1">
+          <p>
+            ChexSystems, Inc. helps financial institutions identify people who may have a history of mishandling checking accounts. If you’ve been turned down for a bank account within the last 60 days, a ChexSystems report can help you understand why. Access your report online or call ChexSystems, Inc. at 1-800-428-9623.
+          </p>
+        </div>
+        <div class="col2 ans" style="display: none; top: 393px; right: 80px;" id="answer2">
+          <p>
+            You’re entitled to one free credit report from each of the three credit bureaus (Transunion, Experion, and Equifax) every year. You can request and view your report online
+            <a href="https://www.annualcreditreport.com" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.annualcreditreport.com']);" target="_blank">here</a>
+            .
+          </p>
+          <p>
+            The Federal Reserve Bank has published a
+            <a href="http://www.frbsf.org/publications/consumer/creditreport.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.frbsf.org']);" target="_blank">pamphlet</a>
+            explaining your credit report, why your credit score is important, and how to use your report.
+          </p>
+        </div>
+        <div class="col2 ans" style="display: none; top: 454px; right: 80px;" id="answer3">
+          <p>
+            The Federal Trade Commission provides an entire
+            <a href="http://www.ftc.gov/bcp/edu/microsites/idtheft/consumers/index.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.ftc.gov']);" target="_blank">Web site</a>
+            about identity theft, including how to prevent identity theft and recover your identity if it has been stolen.
+          </p>
+          <p>
+            The Federal Reserve Bank has also published a guide on
+            <a href="http://www.frbsf.org/publications/consumer/credit.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.frbsf.org']);" target="_blank">“How to Establish, Use, and Protect your Credit.”</a>
+          </p>
+        </div>
+        <div class="col2 ans" style="display: none; top: 515px; right: 80px;" id="answer4">
+          <p>
+            In the San Francisco area, you can call the
+            <a href="https://www.cccssf.org/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.cccssf.org']);" target="_blank">Consumer Credit Counseling Service of San Francisco (CCCSSF)</a>
+            , a nonprofit financial resource center that offers tools to help you set and achieve financial goals. If you want to manage or eliminate your debt, CCCSSF also offers free, confidential consultations. Call (800) 777-PLAN.
+          </p>
+        </div>
+        <div class="col2 ans" style="display: none; top: 576px; right: 80px;" id="answer5">
+          <p>
+            In the San Francisco area, you can call the
+            <a href="https://www.cccssf.org/">Consumer Credit Counseling Service of San Francisco (CCCSSF)</a>
+            , a nonprofit financial resource center that offers tools to help you set and achieve financial goals. If your goal is to avoid filing for bankruptcy or to understand the bankruptcy process, they will counsel you through the process. Call (800) 777-PLAN.
+          </p>
+        </div>
+        <div class="col2 ans" style="display: block; top: 637px; right: 80px;" id="answer6">
+          <p>
+            You’re not alone. Call or visit the
+            <a href="http://www.995hope.org/">National Foreclosure Prevention Hotline:</a>
+            (888) 995-HOPE. A homeownership counselor who understands your situation will answer your call, and help you with next steps.
+          </p>
+        </div>
+        <div class="col2 ans" style="display: none;" id="answer7">
+          <p>
+            To apply for a Matricula card, you must make an appointment with the
+            <a href="http://portal.sre.gob.mx/con_sanfrancisco/">San Francisco Mexican Consulate.</a>
+            Call (877) MEXITEL.
+          </p>
+        </div>
+        <div class="col2 ans" style="display: none; top: 759px; right: 80px;" id="answer8">
+          <p>
+            You’ll need to contact the San Francisco Guatemalan Consulate at 785 Market St., Suite 400 San Francisco CA 94103. You can also call the office at (415) 896-9181.
+          </p>
+        </div>
+      </div>
+      <div class="container">
+        <!-- PARTICIPANTS -->
+        <div id="participants" class="pull-right">
+          <hr>
+          <p class="lead">Participating Banks and Credit Unions:</p>
           <li>
             <a href="http://bankonsanfrancisco.com/wp-content/uploads/2011/09/BANK_OF_AMERICA.pdf" download>Bank of America</a>
           </li>
@@ -103,340 +417,58 @@
             <a href="http://bankonsanfrancisco.com/wp-content/uploads/2011/09/Wells_fargo.pdf" download>Wells Fargo</a>
           </li>
         </div>
-      </div>
-      <!-- Content Text -->
-      <hr>
-      <div class="container">
-        <div class="span2 pagination-centered">
-          <p class="lead"> <em>Let BankOn San Francisco help you open an account today.</em>
-          </p>
-        </div>
-        <div class="span8">
+
+        <!-- PARTNER WITH BANKON -->
+        <div id="partner" class="span8">
+          <hr>
+
           <p>
-            Financially, a bank account changes everything. It&#8217;s a doorway to savings, and financial security. It offers protection from the high fees charged by check cashing companies.
+            Bank On San Francisco can’t succeed without committed partners. We invite all local community or financial organizations to join the effort. Together, we can help San Franciscans take steps toward financial freedom.
           </p>
+          BECOME A FINANCIAL PARTNER
           <p>
-            Bank On San Francisco makes it easy for you to get a bank account &#8211; even if you&#8217;ve had problems with an account in the past, have never had an account before, or are not a U.S citizen.
+            When Bank On San Francisco started, we challenged many of the City’s financial institutions to lead the way in removing barriers keeping low-income families from opening bank accounts. So far, we’ve partnered with 14 banks and credit unions, with over 170 branches across San Francisco. Since we launched in 2006, we’ve helped over 10,000 San Franciscans each year to open bank accounts and enter the financial mainstream.When you partner with Bank On, you can expand your marketing in targeted low-income neighborhoods, identify new customers, develop strategies to reach unbanked customers, and make strong connections in the community.
+          </p>
+          AS A FINANCIAL PARTNER, YOU CAN:
+          <p>
+            Bank the unbanked by offering Bank On accounts at your San Francisco locations.Take part in Bank on San Francisco outreach events.Partner with a community organization of your choice.Hold a financial training seminar for community organizations.Include Bank on San Francisco information in your mailings and newsletters.Display posters and other materials in public spaces.Place a link on your Web site to bankonsf.org.
+          </p>
+          BECOME A COMMUNITY PARTNER
+          <p>
+            One of the best ways to reach unbanked San Franciscans is through trusted community networks: employers, places of worship, community agencies, local colleges, and others. If you can connect us to people who want to take steps toward financial security, we can work with you to offer essential training, advice, and banking opportunities.
+          </p>
+          SIGN UP TODAY AND LEARN HOW YOUR ORGANIZATION CAN:
+          <p>
+            Host a Financial Education Workshop for your organization (download the application here).Partner with a Bank on San Francisco bank or credit union.Create an action group to encourage members of your community to enroll in financial education, open checking accounts, or start savings plans.Include Bank on San Francisco information in your mailings and newsletters.Display posters and other materials in public spaces.Place a link on your Web site to bankonsf.org.
+          </p>
+          HOST A FINANCIAL EDUCATION WORKSHOP
+          <p>
+            If you would like to host a financial education seminar for your organization, Bank on San Francisco will provide a trained financial educator to teach the class. What do you have to do? Agree to guarantee a minimum of twenty attendees and provide a meeting space, refreshments, and childcare (if necessary). We also ask participating organizations to reach out and promote the seminar, and open the class to interested members of the public.
+          </p>
+          MARKETING MATERIALS
+          <p>
+            For more detailed information on Bank on San Francisco, please download and print our customer program brochure. To receive copies of our posters, flyers, or brochures, please email sf.ofe@sfgov.org.
           </p>
         </div>
       </div>
-      <hr>
-      <!-- WHY -->
-      <div class="container">
-        <p>
-          By opening a bank account, you take a big step toward financial security. You can keep your money safe, enter the financial mainstream, and start saving for your dreams. The free- or low-cost accounts you get through Bank On make it easier than ever to start.
-        </p>
-        IT COSTS LESS THAN A CHECK-CASHING SERVICE
-        <p>
-          Check-cashing stores charge a steep fee for their service — anywhere from 2.5% to 10% of your monthly income. If you cash two paychecks a month, annual fees could cost you many times more than your own checking account. Also, money orders can cost up to $3 each, making it even more expensive just to get your own money.
-        </p>
-        IT’S SAFE
-        <p>
-          Without a bank account, you and your family face a greater risk of losing your money. You’re more vulnerable to loss, robbery or theft. An earthquake, fire, or other disaster could leave you helpless. A checking or savings account is secure because your money is insured and protected by the Federal Deposit Insurance Corporation (FDIC).
-        </p>
-        IT’S CONVENIENT
-        <p>
-          A checking account lets you deposit and withdraw your money whenever you want. You can pay bills with checks, on the Internet, or by direct debit, and avoid paying for money orders. You can use your debit card to buy things at stores or withdraw money from ATMs across the city, reducing the need to carry cash. You can also keep track of your spending on the Internet, by phone, or at the ATM. If you direct deposit your paycheck, you get instant access to your money. Best of all, this convenience comes at little or no cost.
-        </p>
-        IT HELPS YOU SAVE FOR THE FUTURE
-        <p>
-          If you don’t have a bank account, it’s harder to save money for long-term goals like buying a home, starting a business, or investing in education. Studies show that people with bank accounts are more likely to save, move up the economic ladder, and reach financial security.
-        </p>
-        <hr>
-        <!-- HOW -->
-        <p>
-          Just follow these four steps. If you need help finding the best bank or credit union for you, just use our Bank Finder tool.
-        </p>
-        1. FIND A PARTICIPATING BANK OR CREDIT UNION
-        <p>
-          Bank on San Francisco has over 170 partner branches in San Francisco. Use our Bank Finder tool or call 2-1-1 to get the bank or credit union that’s best for you. Or look for the Bank on San Francisco sign at a bank or credit union in your community. View list of participating institutions here.
-        </p>
-        2. ASK ABOUT OPENING AN ACCOUNT THROUGH BANK ON SAN FRANCISCO
-        <p>
-          Our financial partners have created special accounts just for you. They’ll answer your questions and help you open the best one for your needs.
-        </p>
-        3. REMEMBER TO BRING ID
-        <p>
-          You don’t need a Social Security number, but you will need a passport, California ID, Mexican Matricula card, or Guatemalan Consular identification card. And most banks will request a second form of ID, not including cell phone bills. View list of accepted IDs.
-        </p>
-        4. OPEN YOUR NEW ACCOUNT
-        <p>
-          Someone at the bank or credit union will walk you through the entire process. They can even connect you to free money management training classes to help you get the most from your new account.
-        </p>
-        <hr>
-        <!-- MANAGING YOUR MONEY -->
-        <p>
-          We want you to have everything you need to get the most out of your new account. That includes education. We’ve partnered with local nonprofit organizations to offer you a wealth of financial education classes, so you know everything you need to know about looking after your money.
-        </p>
-        THERE ARE HUNDREDS OF CLASSES AVAILABLE THROUGHOUT THE YEAR, COVERING SUBJECTS LIKE:
-        <ul>
-          <li>Setting a budget</li>
-        </li>
-        <li>Managing a checking account</li>
-        <li>Improving your credit rating</li>
-        <li>Paying off debt</li>
-        <li>Saving for the future</li>
-      </ul>
-      LEARN IN PERSON
-      <p>
-        To find dozens of free financial education workshops, go to the SF Smart Money Network. It’s a partnership between San Francisco’s Office of Financial Empowerment and several of the area’s leading financial institutions and foundations. Some of the best financial teachers in the Bay Area will show you how to manage your money, lower your debt, and save and invest for your future. See a schedule of upcoming classes in your neighborhood.
-      </p>
-      LEARN ONLINE
-      <p>
-        Online financial classes through the Beehive are easy, convenient and free. Visit their site to learn how to manage your checking account, create and manage a budget for your family, file taxes free online, and much more.
-      </p>
-      <hr>
-      <!-- Q&A -->
-      <p>
-        Here, you’ll find answers to common questions about checking accounts and other financial issues. You’ll also find a list of other helpful resources including career help, food assistance, free tax preparation, and much more. If you don’t find an answer to your question below, or you need additional resources, call 2-1-1 or visit www.211bayarea.org.
-      </p>
 
-      <div class="col1 qa" style="margin-left: 90px;" id="">
-        <p id="1" class="q">
-          A bank told me I am on ChexSystems. What does this mean and how do I get a copy of my ChexSystems report?
-        </p>
-        <p id="2" class="q">
-          I have no idea what my credit is like. Where can I get a copy of my credit report?
-        </p>
-        <p id="3" class="q">
-          I think my identity has been stolen. Where can I find help with identity theft?
-        </p>
-        <p id="4" class="q">
-          I’m having trouble paying my bills. How can I reduce my debt?
-        </p>
-        <p id="5" class="q">
-          I’m worried I might need to declare bankruptcy. Where can I go for help?
-        </p>
-        <p id="6" class="q active">
-          I have a mortgage and now I’m worried about being foreclosed. Who can I call?
-        </p>
-        <p id="7" class="q">
-          I’m a Mexican citizen and I don’t have a California driver’s license. How do I get a Mexican Matricula card?
-        </p>
-        <p id="8" class="q">
-          I am a Guatemalan citizen and I don’t have a California driver’s license. How do I get a Guatemalan Consular ID?
-        </p>
-        <p></p>
-      </div>
-      <div class="col2 ans" style="display: none; top: 314px; right: 80px;" id="answer1">
-        <p>
-          ChexSystems, Inc. helps financial institutions identify people who may have a history of mishandling checking accounts. If you’ve been turned down for a bank account within the last 60 days, a ChexSystems report can help you understand why. Access your report online or call ChexSystems, Inc. at 1-800-428-9623.
-        </p>
-      </div>
-      <div class="col2 ans" style="display: none; top: 393px; right: 80px;" id="answer2">
-        <p>
-          You’re entitled to one free credit report from each of the three credit bureaus (Transunion, Experion, and Equifax) every year. You can request and view your report online
-          <a href="https://www.annualcreditreport.com" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.annualcreditreport.com']);" target="_blank">here</a>
-          .
-        </p>
-        <p>
-          The Federal Reserve Bank has published a
-          <a href="http://www.frbsf.org/publications/consumer/creditreport.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.frbsf.org']);" target="_blank">pamphlet</a>
-          explaining your credit report, why your credit score is important, and how to use your report.
-        </p>
-      </div>
-      <div class="col2 ans" style="display: none; top: 454px; right: 80px;" id="answer3">
-        <p>
-          The Federal Trade Commission provides an entire
-          <a href="http://www.ftc.gov/bcp/edu/microsites/idtheft/consumers/index.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.ftc.gov']);" target="_blank">Web site</a>
-          about identity theft, including how to prevent identity theft and recover your identity if it has been stolen.
-        </p>
-        <p>
-          The Federal Reserve Bank has also published a guide on
-          <a href="http://www.frbsf.org/publications/consumer/credit.html" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.frbsf.org']);" target="_blank">“How to Establish, Use, and Protect your Credit.”</a>
-        </p>
-      </div>
-      <div class="col2 ans" style="display: none; top: 515px; right: 80px;" id="answer4">
-        <p>
-          In the San Francisco area, you can call the
-          <a href="https://www.cccssf.org/" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.cccssf.org']);" target="_blank">Consumer Credit Counseling Service of San Francisco (CCCSSF)</a>
-          , a nonprofit financial resource center that offers tools to help you set and achieve financial goals. If you want to manage or eliminate your debt, CCCSSF also offers free, confidential consultations. Call (800) 777-PLAN.
-        </p>
-      </div>
-      <div class="col2 ans" style="display: none; top: 576px; right: 80px;" id="answer5">
-        <p>
-          In the San Francisco area, you can call the
-          <a href="https://www.cccssf.org/">Consumer Credit Counseling Service of San Francisco (CCCSSF)</a>
-          , a nonprofit financial resource center that offers tools to help you set and achieve financial goals. If your goal is to avoid filing for bankruptcy or to understand the bankruptcy process, they will counsel you through the process. Call (800) 777-PLAN.
-        </p>
-      </div>
-      <div class="col2 ans" style="display: block; top: 637px; right: 80px;" id="answer6">
-        <p>
-          You’re not alone. Call or visit the
-          <a href="http://www.995hope.org/">National Foreclosure Prevention Hotline:</a>
-          (888) 995-HOPE. A homeownership counselor who understands your situation will answer your call, and help you with next steps.
-        </p>
-      </div>
-      <div class="col2 ans" style="display: none;" id="answer7">
-        <p>
-          To apply for a Matricula card, you must make an appointment with the
-          <a href="http://portal.sre.gob.mx/con_sanfrancisco/">San Francisco Mexican Consulate.</a>
-          Call (877) MEXITEL.
-        </p>
-      </div>
-      <div class="col2 ans" style="display: none; top: 759px; right: 80px;" id="answer8">
-        <p>
-          You’ll need to contact the San Francisco Guatemalan Consulate at 785 Market St., Suite 400 San Francisco CA 94103. You can also call the office at (415) 896-9181.
-        </p>
-      </div>
-      <hr>
-      <!-- PARTNER WITH BANKON -->
-      <p>
-        Bank On San Francisco can’t succeed without committed partners. We invite all local community or financial organizations to join the effort. Together, we can help San Franciscans take steps toward financial freedom.
-      </p>
-      BECOME A FINANCIAL PARTNER
-      <p>
-        When Bank On San Francisco started, we challenged many of the City’s financial institutions to lead the way in removing barriers keeping low-income families from opening bank accounts. So far, we’ve partnered with 14 banks and credit unions, with over 170 branches across San Francisco. Since we launched in 2006, we’ve helped over 10,000 San Franciscans each year to open bank accounts and enter the financial mainstream.When you partner with Bank On, you can expand your marketing in targeted low-income neighborhoods, identify new customers, develop strategies to reach unbanked customers, and make strong connections in the community.
-      </p>
-      AS A FINANCIAL PARTNER, YOU CAN:
-      <p>
-        Bank the unbanked by offering Bank On accounts at your San Francisco locations.Take part in Bank on San Francisco outreach events.Partner with a community organization of your choice.Hold a financial training seminar for community organizations.Include Bank on San Francisco information in your mailings and newsletters.Display posters and other materials in public spaces.Place a link on your Web site to bankonsf.org.
-      </p>
-      BECOME A COMMUNITY PARTNER
-      <p>
-        One of the best ways to reach unbanked San Franciscans is through trusted community networks: employers, places of worship, community agencies, local colleges, and others. If you can connect us to people who want to take steps toward financial security, we can work with you to offer essential training, advice, and banking opportunities.
-      </p>
-      SIGN UP TODAY AND LEARN HOW YOUR ORGANIZATION CAN:
-      <p>
-        Host a Financial Education Workshop for your organization (download the application here).Partner with a Bank on San Francisco bank or credit union.Create an action group to encourage members of your community to enroll in financial education, open checking accounts, or start savings plans.Include Bank on San Francisco information in your mailings and newsletters.Display posters and other materials in public spaces.Place a link on your Web site to bankonsf.org.
-      </p>
-      HOST A FINANCIAL EDUCATION WORKSHOP
-      <p>
-        If you would like to host a financial education seminar for your organization, Bank on San Francisco will provide a trained financial educator to teach the class. What do you have to do? Agree to guarantee a minimum of twenty attendees and provide a meeting space, refreshments, and childcare (if necessary). We also ask participating organizations to reach out and promote the seminar, and open the class to interested members of the public.
-      </p>
-      MARKETING MATERIALS
-      <p>
-        For more detailed information on Bank on San Francisco, please download and print our customer program brochure. To receive copies of our posters, flyers, or brochures, please email sf.ofe@sfgov.org.
-      </p>
     </div>
-    <!-- Map -->
-    <div id="Map">
-      <div class="span4">
-        <div class='well'>
-          <h4>
-            Address
-            <small>
-              (
-              <a id='find_me' href='#'>find me</a>
-              )
-            </small>
-          </h4>
-          <input class='input-block-level' id='search_address' placeholder='Enter an address or an intersection' type='text' />
-          <label>
-            within
-            <select class='input-small' id='search_radius'>
-              <option value='400'>2 blocks</option>
-              <option value='805'>1/2 mile</option>
-              <option value='1610'>1 mile</option>
-              <option value='3220'>2 miles</option>
-            </select>
-          </label>
-          <input class='btn btn-primary' id='search' type='button' value='Search' />
-          <button class='btn' id='reset'>Reset</button>
-        </div>
-
-        <div class='well'>
-          <!-- Once you decide what filter you want, place the HTML code here. The section in the maps_lib.js is also marked. Once you're done, feel free to delete this explanatory section.-->
-
-          <h4>
-            Minimum Opening Deposit
-            <small>
-              between
-              <span id='deposit-selected-start'>0</span>
-              -
-              <span id='deposit-selected-end'>100</span>
-            </small>
-          </h4>
-          <div id='deposit-slider'></div>
-          <span class='pull-left'>$0</span>
-          <span class='pull-right'>$100</span>
-        </div>
-
-        <div class='well'>
-          <h4>
-            Monthly Fee
-            <small>
-              between
-              <span id='monthly-selected-start'>0</span>
-              -
-              <span id='monthly-selected-end'>100</span>
-            </small>
-          </h4>
-          <div id='monthly-slider'></div>
-          <span class='pull-left'>$0</span>
-          <span class='pull-right'>$100</span>
-        </div>
-
-        <div class='well'>
-          <h4>
-            Overdraft Fee
-            <small>
-              between
-              <span id='overdraft-selected-start'>0</span>
-              -
-              <span id='overdraft-selected-end'>100</span>
-            </small>
-          </h4>
-          <div id='overdraft-slider'></div>
-          <span class='pull-left'>$0</span>
-          <span class='pull-right'>$100</span>
-        </div>
-
-        <div class='well'>
-          <h4>
-            Bounced Check Fee
-            <small>
-              between
-              <span id='bounced-selected-start'>0</span>
-              -
-              <span id='bounced-selected-end'>100</span>
-            </small>
-          </h4>
-          <div id='bounced-slider'></div>
-          <span class='pull-left'>$0</span>
-          <span class='pull-right'>$100</span>
-        </div>
-
-        <div class='well'>
-          <h4>Options</h4>
-          <ul class='inputs-list unstyled'>
-            <li>
-              <label class='checkbox inline'>
-                <input type='checkbox' id='cbChex' />
-                Open account for customers with Chex Systems history
-              </label>
-            </li>
-            <li>
-              <label class='checkbox inline'>
-                <input type='checkbox' id='cbChecksIncl' />
-                Checks included
-              </label>
-
-            </li>
-          </ul>
-        </div>
-
-        <p class='alert alert-info lead' id='result_count'></p>
-      </div>
-      <div class="span8">
-        <div id='map_canvas'></div>
-        <div class='well'>
-          <div id='results_list'></div>
-        </div>
-      </div>
-    </div>
+    <div id="push"></div>
     <!-- footer -->
-    <div class="container footer">
-      <a href="http://sfofe.org">
-        <img src="http://bankonsanfrancisco.com/wp-content/themes/sf_bankon_v1/images/logo.png"></a>
-      <div>
-        <a href="" class="signup">sign up for ofe news</a>
-        <a href="" class="access">accessibility policy</a>
-        <a href="" class="privacy">privacy policy</a>
+    <div id="footer" style="background-color: #f5f5f5;">
+      <div class="container">
+        <a href="http://sfofe.org">
+          <img src="http://bankonsanfrancisco.com/wp-content/themes/sf_bankon_v1/images/logo.png"></a>
+        <a href="">Sign up for Office of Financial Education news</a>
+        |
+        <a href="">Accessibility Policy</a>
+        |
+        <a href="">Privacy Policy</a>
       </div>
     </div>
+  </div>
 </body>
-    <script type='text/javascript'>
+  <script type='text/javascript'>
       //<![CDATA[
         $(window).resize(function () {
           var h = $(window).height(),
@@ -475,6 +507,10 @@
             MapsLib.initialize();
             return false;
           });
+          $("#view_mode").click(function () {
+            var e = $.address.parameter("view_mode");
+            return e == "list" ? e = "map" : e = "list", $.address.parameter("view_mode", e), MapsLib.setResultsView(e), !1
+          });
 
           $(":text").keydown(function(e){
               var key =  e.keyCode ? e.keyCode : e.which;
@@ -485,4 +521,4 @@
           });
         });
       //]]> </script>
-  </html>
+</html>
