@@ -229,6 +229,7 @@ var MapsLib = {
     });
     MapsLib.searchrecords.setMap(map);
     MapsLib.getCount(whereClause);
+    MapsLib.getList(whereClause);
   },
 
   clearSearch: function() {
@@ -254,7 +255,18 @@ var MapsLib = {
       alert("Sorry, we could not find your location.");
     }
   },
-
+  setResultsView: function (e) {
+    var t = $("#view_mode");
+    return e == undefined && (e = "map"),
+    e == "map" ? (
+      $("#list_canvas").hide(),
+      $("#map_canvas").show(),
+      google.maps.event.trigger(map, "resize"),
+      map.setCenter(MapsLib.map_centroid), MapsLib.doSearch(),
+      t.html('Show list <i class="icon-list icon-white"></i>')) : ($("#list_canvas").show(),
+      $("#map_canvas").hide(), t.html('Show map <i class="icon-map-marker icon-white"></i>')
+    ), !1
+  },
   addrFromLatLng: function(latLngPoint) {
     geocoder.geocode({'latLng': latLngPoint}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
@@ -326,6 +338,43 @@ var MapsLib = {
       });
     $( "#result_count" ).fadeIn();
   },
+
+  getList: function(whereClause) {
+    var selectColumns = "'Financial Institution', 'Branch Name', 'Address'";
+    MapsLib.query(selectColumns, whereClause, "MapsLib.displayList");
+  },
+
+  displayList: function(json) {
+    MapsLib.handleError(json);
+    var data = json["rows"];
+    var template = "";
+
+    var results = $("#results_list");
+    results.hide().empty(); //hide the existing list and empty it out first
+
+    if (data == null) {
+      //clear results list
+      results.append("<li><span class='lead'>No results found</span></li>");
+    }
+    else {
+      for (var row in data) {
+        template = "\
+          <div class='row-fluid item-list'>\
+            <div class='span12'>\
+              <strong>" + data[row][0] + "</strong>\
+              <br />\
+              " + data[row][1] + "\
+              <br />\
+              " + data[row][2] + "\
+              <br />\
+            </div>\
+          </div>"
+        results.append(template);
+      }
+    }
+    results.fadeIn();
+  },
+
 
   addCommas: function(nStr) {
     nStr += '';
