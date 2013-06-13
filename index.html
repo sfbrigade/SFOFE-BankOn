@@ -6,15 +6,15 @@
   <link rel="profile" href="http://gmpg.org/xfn/11" />
   <link rel="pingback" href="http://bankonsanfrancisco.com/xmlrpc.php" />
   <link rel="stylesheet" href="styles/custom.css"/>
-  <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css"/>
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css"/>
   <link rel="stylesheet" href="styles/bootstrap.spacelab.min.css"/>
-  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+  <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="styles/home.css">
   <link rel="stylesheet" type="text/css" media="all" href="styles/style.css" />
   <script src="source/jquery.js"></script>
   <script src="source/bootstrap.js"></script>
   <script type="text/javascript" src="http://sfsmartmoneynetwork.org/wp-content/themes/sf_fen_edit/js/home.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
   <script type="text/javascript" src="source/jquery.address.min.js"></script>
   <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;libraries=places"></script>
   <script type="text/javascript" src="source/jquery.geocomplete.min.js"></script>
@@ -133,6 +133,11 @@
             </label>
             <input class='btn btn-primary' id='search' type='button' value='Search' />
             <button class='btn' id='reset'>Reset</button>
+            <div class="pull-right">
+            <button class="btn btn-info" id="view_mode">
+              Show list <i class="icon-list icon-white"></i>
+            </button>
+          </div>
           </div>
 
           <div class='well'>
@@ -219,6 +224,9 @@
           <p class='alert alert-info lead' id='result_count'></p>
 
           <div id='map_canvas'></div>
+          <div id='list_canvas' style="overflow: hidden; display: none;" class="well">
+            <div id='results_list' style="overflow-y: scroll;"></div>
+          </div>
 
         </div>
         <!-- footer -->
@@ -232,57 +240,62 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </body>
   <script type='text/javascript'>
-      //<![CDATA[
-        $(window).resize(function () {
-          var h = $(window).height(),
-            offsetTop = 90; // Calculate the top offset
+  //<![CDATA[
+    $(window).resize(function () {
+      var h = $(window).height(),
+        offsetTop = 90; // Calculate the top offset
 
-          $('#map_canvas').css('height', (h - 600));
-        }).resize();
+      $('#map_canvas').css('height', (1000));
+      $('#results_list').css('height', (1000));
+    }).resize();
 
-        $(function() {
-          MapsLib.initialize();
-          $("#search_address").geocomplete();
+    $(function() {
+      MapsLib.initialize();
+      $("#search_address").geocomplete();
 
-          $(':checkbox').click(function(){
-            MapsLib.doSearch();
-          });
+      $(':checkbox').click(function(){
+        MapsLib.doSearch();
+      });
 
-          $(':radio').click(function(){
-            MapsLib.doSearch();
-          });
+      $(':radio').click(function(){
+        MapsLib.doSearch();
+      });
 
-          $('#search_radius').change(function(){
-            MapsLib.doSearch();
-          });
+      $('#search_radius').change(function(){
+        MapsLib.doSearch();
+      });
 
-          $('#search').click(function(){
-            MapsLib.doSearch();
-          });
+      $('#search').click(function(){
+        MapsLib.doSearch();
+      });
 
-          $('#find_me').click(function(){
-            MapsLib.findMe();
-            return false;
-          });
+      $('#find_me').click(function(){
+        MapsLib.findMe();
+        return false;
+      });
 
-          $('#reset').click(function(){
-            $.address.parameter('address','');
-            MapsLib.initialize();
-            return false;
-          });
+      $('#reset').click(function(){
+        $.address.parameter('address','');
+        MapsLib.initialize();
+        return false;
+      });
+      $("#view_mode").click(function () {
+        var e = $.address.parameter("view_mode");
+        return e == "list" ? e = "map" : e = "list", $.address.parameter("view_mode", e), MapsLib.setResultsView(e), !1
+      });
 
-          $(":text").keydown(function(e){
-              var key =  e.keyCode ? e.keyCode : e.which;
-              if(key == 13) {
-                  $('#search').click();
-                  return false;
-              }
-          });
-        });
-      //]]> </script>
+      $(":text").keydown(function(e){
+          var key =  e.keyCode ? e.keyCode : e.which;
+          if(key == 13) {
+              $('#search').click();
+              return false;
+          }
+      });
+    });
+  //]]>
+</script>
 </html>

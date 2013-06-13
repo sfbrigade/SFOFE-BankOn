@@ -366,17 +366,16 @@ var MapsLib = {
     }
     else {
       for (var row in data) {
-        template = "\
-          <div class='row-fluid item-list'>\
-            <div class='span12'>\
-              <strong>" + data[row][0] + "</strong>\
-              <br />\
-              " + data[row][1] + "\
-              <br />\
-              " + data[row][2] + "\
-              <br />\
-            </div>\
-          </div>"
+        template = (
+          "<div class='row-fluid item-list'><div class='span12'><strong>" +
+          data[row][0] +
+          "</strong><br />" +
+          data[row][1] +
+          "<br /><a href='https://www.google.com/maps/?q=" +
+          data[row][2] +
+          "'>" +
+          data[row][2] +
+          "</a><br /></div></div>");
         results.append(template);
       }
     }
