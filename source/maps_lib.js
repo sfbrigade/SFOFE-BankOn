@@ -66,13 +66,11 @@ var MapsLib = {
     var loadRadius = MapsLib.convertToPlainString($.address.parameter('radius'));
     if (loadRadius != "") $("#search_radius").val(loadRadius);
     else $("#search_radius").val(MapsLib.searchRadius);
-    $(":checkbox").attr("checked", "checked");
+
     $("#result_count").hide();
 
     //-----custom initializers-------
 
-    $("#cbChex").attr("checked", false);
-    $("#cbChecksIncl").attr("checked", false);
     $("#deposit-slider").slider({
         orientation: "horizontal",
         range: true,
