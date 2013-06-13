@@ -78,7 +78,7 @@ var MapsLib = {
         range: true,
         min: 0,
         max: 100,
-        values: [0, 100],
+        values: [0, 75],
         step: 5,
         slide: function (event, ui) {
             $("#deposit-selected-start").html(ui.values[0]);
@@ -154,6 +154,24 @@ var MapsLib = {
     var type_column = "'Open Accounts for customers with ChexSystems History'";
     if ( $("#cbChex").is(':checked')) whereClause += " AND " + type_column + "= 'Yes'";
 
+    type_column = "'Check/Debit Card included'";
+    if ( $("#cbCardIncluded").is(':checked')) whereClause += " AND " + type_column + "= 'Yes'";
+
+    type_column = "'Online Bill Pay'";
+    if ( $("#cbOnlineBillpay").is(':checked')) whereClause += " AND " + type_column + "= 'Yes'";
+
+    type_column = "'Remittance products available'";
+    if ( $("#cbRemittance").is(':checked')) whereClause += " AND " + type_column + "= 'Yes'";
+
+    type_column = "'Wire Transfers'";
+    if ( $("#cbWireTransfers").is(':checked')) whereClause += " AND " + type_column + "= 'Yes'";
+
+    type_column = "'Offer Financial Education'";
+    if ( $("#cbOfferFinancialEd").is(':checked')) whereClause += " AND " + type_column + "= 'Yes'";
+
+    type_column = "'Money Orders'";
+    if ( $("#cbMoneyOrders").is(':checked')) whereClause += " AND " + type_column + "= 'Yes'";
+
     type_column = "'Checks included'";
     if ( $("#cbChecksIncl").is(':checked')) whereClause += " AND " + type_column + "= 'Yes'";
 
@@ -164,14 +182,6 @@ var MapsLib = {
     type_column = "'Monthly Fee'";
     whereClause += " AND " + type_column + " >= '" + $("#monthly-selected-start").html() + "'";
     whereClause += " AND " + type_column + " <= '" + $("#monthly-selected-end").html() + "'";
-
-    type_column = "'Overdraft Fees'";
-    whereClause += " AND " + type_column + " >= '" + $("#overdraft-selected-start").html() + "'";
-    whereClause += " AND " + type_column + " <= '" + $("#overdraft-selected-end").html() + "'";
-
-    type_column = "'Bounced Check Fee'";
-    whereClause += " AND " + type_column + " >= '" + $("#bounced-selected-start").html() + "'";
-    whereClause += " AND " + type_column + " <= '" + $("#bounced-selected-end").html() + "'";
 
     //-------end of custom filters--------
 
