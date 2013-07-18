@@ -75,9 +75,9 @@ var MapsLib = {
         orientation: "horizontal",
         range: true,
         min: 0,
-        max: 25,
-        values: [0, 25],
-        step: 1,
+        max: 100,
+        values: [0, 100],
+        step: 5,
         slide: function (event, ui) {
             $("#deposit-selected-start").html(ui.values[0]);
             $("#deposit-selected-end").html(ui.values[1]);
