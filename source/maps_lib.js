@@ -90,8 +90,8 @@ var MapsLib = {
         orientation: "horizontal",
         range: true,
         min: 0,
-        max: 100,
-        values: [0, 10],
+        max: 20,
+        values: [0, 20],
         step: 1,
         slide: function (event, ui) {
             $("#monthly-selected-start").html(ui.values[0]);
