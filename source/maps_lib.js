@@ -86,21 +86,6 @@ var MapsLib = {
           MapsLib.doSearch();
         }
     });
-    $("#monthly-slider").slider({
-        orientation: "horizontal",
-        range: true,
-        min: 0,
-        max: 20,
-        values: [0, 20],
-        step: 1,
-        slide: function (event, ui) {
-            $("#monthly-selected-start").html(ui.values[0]);
-            $("#monthly-selected-end").html(ui.values[1]);
-        },
-        stop: function(event, ui) {
-          MapsLib.doSearch();
-        }
-    });
 
     $("#overdraft-slider").slider({
         orientation: "horizontal",
@@ -160,6 +145,9 @@ var MapsLib = {
 
     type_column = "'Remittance products available'";
     if ( $("#cbRemittance").is(':checked')) whereClause += " AND " + type_column + "= 'Yes'";
+    
+    type_column = "'Monthly Fee'";
+    if ( $("#cbMonthlyFee").is(':checked')) whereClause += " AND " + type_column + "> 0";
 
     type_column = "'Wire Transfers'";
     if ( $("#cbWireTransfers").is(':checked')) whereClause += " AND " + type_column + "= 'Yes'";
