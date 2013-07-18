@@ -115,7 +115,7 @@ var MapsLib = {
     if ( $("#cbRemittance").is(':checked')) whereClause += " AND " + type_column + "= 'Yes'";
     
     type_column = "'Monthly Fee'";
-    if ( $("#cbMonthlyFee").is(':checked')) whereClause += " AND " + type_column + " >= '0'";
+    if ( $("#cbMonthlyFee").is(':checked')) whereClause += " AND " + type_column + " <= '0'";
 
     type_column = "'Wire Transfers'";
     if ( $("#cbWireTransfers").is(':checked')) whereClause += " AND " + type_column + "= 'Yes'";
