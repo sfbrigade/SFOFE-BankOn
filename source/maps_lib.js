@@ -75,9 +75,9 @@ var MapsLib = {
         orientation: "horizontal",
         range: true,
         min: 0,
-        max: 100,
-        values: [0, 75],
-        step: 5,
+        max: 25,
+        values: [0, 25],
+        step: 1,
         slide: function (event, ui) {
             $("#deposit-selected-start").html(ui.values[0]);
             $("#deposit-selected-end").html(ui.values[1]);
@@ -91,8 +91,8 @@ var MapsLib = {
         range: true,
         min: 0,
         max: 100,
-        values: [0, 100],
-        step: 5,
+        values: [0, 10],
+        step: 1,
         slide: function (event, ui) {
             $("#monthly-selected-start").html(ui.values[0]);
             $("#monthly-selected-end").html(ui.values[1]);
