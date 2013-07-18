@@ -87,38 +87,6 @@ var MapsLib = {
         }
     });
 
-    $("#overdraft-slider").slider({
-        orientation: "horizontal",
-        range: true,
-        min: 0,
-        max: 100,
-        values: [0, 100],
-        step: 5,
-        slide: function (event, ui) {
-            $("#overdraft-selected-start").html(ui.values[0]);
-            $("#overdraft-selected-end").html(ui.values[1]);
-        },
-        stop: function(event, ui) {
-          MapsLib.doSearch();
-        }
-    });
-
-    $("#bounced-slider").slider({
-        orientation: "horizontal",
-        range: true,
-        min: 0,
-        max: 100,
-        values: [0, 100],
-        step: 5,
-        slide: function (event, ui) {
-            $("#bounced-selected-start").html(ui.values[0]);
-            $("#bounced-selected-end").html(ui.values[1]);
-        },
-        stop: function(event, ui) {
-          MapsLib.doSearch();
-        }
-    });
-
     //-----end of custom initializers-------
 
     //run the default search
@@ -147,7 +115,7 @@ var MapsLib = {
     if ( $("#cbRemittance").is(':checked')) whereClause += " AND " + type_column + "= 'Yes'";
     
     type_column = "'Monthly Fee'";
-    if ( $("#cbMonthlyFee").is(':checked')) whereClause += " AND " + type_column + "> 0";
+    if ( $("#cbMonthlyFee").is(':checked')) whereClause += " AND " + type_column + ">= 0";
 
     type_column = "'Wire Transfers'";
     if ( $("#cbWireTransfers").is(':checked')) whereClause += " AND " + type_column + "= 'Yes'";
@@ -165,10 +133,12 @@ var MapsLib = {
     whereClause += " AND " + type_column + " >= '" + $("#deposit-selected-start").html() + "'";
     whereClause += " AND " + type_column + " <= '" + $("#deposit-selected-end").html() + "'";
 
+    /*
     type_column = "'Monthly Fee'";
     whereClause += " AND " + type_column + " >= '" + $("#monthly-selected-start").html() + "'";
     whereClause += " AND " + type_column + " <= '" + $("#monthly-selected-end").html() + "'";
-
+    */
+    
     //-------end of custom filters--------
 
     if (address != "") {
