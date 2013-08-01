@@ -73,14 +73,13 @@ var MapsLib = {
 
     $("#deposit-slider").slider({
         orientation: "horizontal",
-        range: true,
         min: 0,
         max: 100,
-        values: [0, 100],
+        value: 100,
+        range: "min",
         step: 5,
         slide: function (event, ui) {
-            $("#deposit-selected-start").html(ui.values[0]);
-            $("#deposit-selected-end").html(ui.values[1]);
+            $("#deposit-selected-end").html(ui.value);
         },
         stop: function(event, ui) {
           MapsLib.doSearch();
@@ -130,7 +129,7 @@ var MapsLib = {
     if ( $("#cbChecksIncl").is(':checked')) whereClause += " AND " + type_column + "= 'Yes'";
 
     type_column = "'Minimum Opening Deposit'";
-    whereClause += " AND " + type_column + " >= '" + $("#deposit-selected-start").html() + "'";
+    // whereClause += " AND " + type_column + " >= '" + $("#deposit-selected-start").html() + "'";
     whereClause += " AND " + type_column + " <= '" + $("#deposit-selected-end").html() + "'";
 
     /*
