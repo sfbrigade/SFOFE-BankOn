@@ -309,7 +309,29 @@ var MapsLib = {
   },
 
   getList: function(whereClause) {
-    var selectColumns = "'Financial Institution', 'Branch Name', 'Address'";
+    var selectColumns = "'Financial Institution', \
+                         'Branch Name', \
+                         'Address', \
+                         'Phone Numbers', \
+                         'Manager', \
+                         'Hours', \
+                         'Minimum Opening Deposit', \
+                         'Minimum Balance', \
+                         'Monthly Fee', \
+                         'Checks included', \
+                         'Check/Debit Card included', \
+                         'Online Bill Pay', \
+                         'Alternative IDs Accepted as Primary Identification', \
+                         'Open Accounts for customers with ChexSystems History', \
+                         'Remittance products available', \
+                         'Wire Transfers', \
+                         'Money Orders', \
+                         'Offer Financial Education', \
+                         'First Overdraft Fees Waived', \
+                         'Overdraft Fees', \
+                         'Bounced Check Fee'\
+                        ";
+    selectColumns = "*";
     MapsLib.query(selectColumns, whereClause, "MapsLib.displayList");
   },
 
@@ -328,15 +350,31 @@ var MapsLib = {
     else {
       for (var row in data) {
         template = (
-          "<div class='row-fluid item-list'><div class='span12'><strong>" +
-          data[row][0] +
-          "</strong><br />" +
-          data[row][1] +
-          "<br /><a href='https://www.google.com/maps/?q=" +
-          data[row][2] +
-          "'>" +
-          data[row][2] +
-          "</a><br /></div></div>");
+          "<div class='row-fluid item-list'><div class='span12'>" +
+            "<strong>" + data[row][0] + "</strong>" +
+            "<br /><strong>Branch: </strong>" + data[row][1] +
+            "<br /><strong>Address: </strong><a href='https://www.google.com/maps/?q=" +data[row][2] +"'>" + data[row][2] + "</a>" +
+            "<br /><strong>Phone numbers: </strong>" + data[row][3] +
+            "<br /><strong>Manager: </strong>" + data[row][4] +
+            "<br /><strong>Hours: </strong>" + data[row][5] +
+            "<br /><strong>Minimum opening deposit: </strong> $" + data[row][6] +
+            "<br /><strong>Minimum balance: </strong> $" + data[row][7] +
+            "<br /><strong>Monthly fee: </strong> $" + data[row][8] +
+            "<br /><strong>Checks included: </strong>" + data[row][9] +
+            "<br /><strong>Check/Debit card included: </strong>" + data[row][10] +
+            "<br /><strong>Online Bill Pay: </strong>" + data[row][11] +
+            "<br /><strong>Alternative IDs Accepted as Primary Identification: </strong>" + data[row][12] +
+            "<br /><strong>Open Accounts for customers with ChexSystems History: </strong>" + data[row][13] +
+            "<br /><strong>Remittance products available: </strong>" + data[row][14] +
+            "<br /><strong>Wire transfers: </strong>" + data[row][15] +
+            "<br /><strong>Money orders: </strong>" + data[row][16] +
+            "<br /><strong>Offer financial education: </strong>" + data[row][17] +
+            "<br /><strong>First overdraft fees waived: </strong>" + data[row][18] +
+            "<br /><strong>Overdraft fees: </strong> $" + data[row][19] +
+            "<br /><strong>Bounced check fee: </strong> $" + data[row][20] +
+            "<br /><br />" +
+          "</div></div>");
+        console.log(data[row]);
         results.append(template);
       }
     }
