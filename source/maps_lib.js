@@ -360,9 +360,9 @@ var MapsLib = {
       results.append("<li><span class='lead'>No results found</span></li>");
     }
     else {
-      results.append("<span class='pull-right'>
-        <button class='btn' id='print_view'>Print List</button>
-        </span>")
+      results.append("<span class='pull-right'>" +
+        "<button class='btn' id='print_view'>Print List</button>" +
+        "</span>")
       for (var row in data) {
         template = (
           "<div class='row-fluid item-list'><div class='span12'>" +
