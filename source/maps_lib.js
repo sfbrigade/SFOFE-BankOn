@@ -231,11 +231,24 @@ var MapsLib = {
       $("#list_canvas").hide(),
       $("#map_canvas").show(),
       google.maps.event.trigger(map, "resize"),
-      map.setCenter(MapsLib.map_centroid), MapsLib.doSearch(),
-      t.html('Show list <i class="icon-list icon-white"></i>')) : ($("#list_canvas").show(),
-      $("#map_canvas").hide(), t.html('Show map <i class="icon-map-marker icon-white"></i>')
+      map.setCenter(
+        MapsLib.map_centroid), 
+        MapsLib.doSearch(),
+        t.html('Show list <i class="icon-list icon-white"></i>')
+      ) : (
+        $("#list_canvas").show(),
+        $("#map_canvas").hide(), 
+        t.html('Show map <i class="icon-map-marker icon-white"></i>')
     ), !1
   },
+
+  printView: function (e) {
+    $('body > :not(#results_list').hide();
+    $('link[href="http://bankonsanfrancisco.com/wp-content/themes/sf_bankon_v1/style.css"]').remove()
+    $('#results_list').appendTo('body');
+    $('#results_list').css("height", "100%")
+
+  }
   addrFromLatLng: function(latLngPoint) {
     geocoder.geocode({'latLng': latLngPoint}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
@@ -348,11 +361,9 @@ var MapsLib = {
       results.append("<li><span class='lead'>No results found</span></li>");
     }
     else {
-      results.append(
-        "<span class='pull-right'>" +
-        "<button class='btn' id='print-view'>Print List</button>" +
-        "</span>"
-      );
+      results.append("<span class='pull-right'>
+        <button class='btn' id='print_view'>Print List</button>
+        </span>")
       for (var row in data) {
         template = (
           "<div class='row-fluid item-list'><div class='span12'>" +
