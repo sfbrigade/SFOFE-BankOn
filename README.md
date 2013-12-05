@@ -1,19 +1,21 @@
-http://bankonsf.org/
+# Bank On - San Francisco Map
 
+This repository contains the artifacts for rendering a map of [banks recommended by the SF Office of Financial Empowerment](http://bankonsanfrancisco.com/map).
 
-# NOTES:
+It's based on [@derekeder/FusionTable-Map-Template](https://github.com/derekeder/FusionTable-Map-Template), so it allows end-users to easily search by various filters.
 
+This work was done as part of the nationwide [2013 Code Across America](http://brigade.codeforamerica.org/pages/codeacross) event.
 
-**Filter Types:**
-
+## Filter Types
 - Location
 - Min Opening Deposit
 - Monthly Fee
 - Overly Draft Fee
 - Bounced Check Fee
 - Recommended for People with Chexsystems History
-- Show list button that flips the map into a list ([Like this](http://locations.weconnectchicago.org/#/?view_mode=map&training=1))
+- Show list button that flips the map into a list
+- Print View mode
 
-
-Todo:
-Deploy on Heroku
+# Contributors
+- [Felix Sargent](@fsargent)
+- [Marc Chung](@mchung)
