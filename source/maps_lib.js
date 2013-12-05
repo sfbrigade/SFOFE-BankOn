@@ -242,12 +242,13 @@ var MapsLib = {
     ), !1
   },
 
-  printView: function (e) {
+  printView: function() {
     $('body > :not(#results_list').hide();
     $('link[href="http://bankonsanfrancisco.com/wp-content/themes/sf_bankon_v1/style.css"]').remove();
     $('#results_list').appendTo('body');
     $('#results_list').css("height", "100%");
   },
+  
   addrFromLatLng: function(latLngPoint) {
     geocoder.geocode({'latLng': latLngPoint}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
