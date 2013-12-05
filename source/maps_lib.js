@@ -232,12 +232,12 @@ var MapsLib = {
       $("#map_canvas").show(),
       google.maps.event.trigger(map, "resize"),
       map.setCenter(
-        MapsLib.map_centroid), 
+        MapsLib.map_centroid),
         MapsLib.doSearch(),
         t.html('Show list <i class="icon-list icon-white"></i>')
       ) : (
         $("#list_canvas").show(),
-        $("#map_canvas").hide(), 
+        $("#map_canvas").hide(),
         t.html('Show map <i class="icon-map-marker icon-white"></i>')
     ), !1
   },
@@ -389,7 +389,6 @@ var MapsLib = {
             "<br /><strong>Bounced check fee: </strong> $" + data[row][20] +
             "<br /><br />" +
           "</div></div>");
-        console.log(data[row]);
         results.append(template);
       }
     }
