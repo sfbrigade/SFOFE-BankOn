@@ -17,5 +17,5 @@ This work was done as part of the nationwide [2013 Code Across America](http://b
 - Print View mode
 
 # Contributors
-- [Felix Sargent](@fsargent)
-- [Marc Chung](@mchung)
+- [Felix Sargent](https://github.com/fsargent)
+- [Marc Chung](https://github.com/mchung)
