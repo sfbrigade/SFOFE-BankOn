@@ -19,3 +19,4 @@ This work was done as part of the nationwide [2013 Code Across America](http://b
 # Contributors
 - [Felix Sargent](https://github.com/fsargent)
 - [Marc Chung](https://github.com/mchung)
+- [Kristina Ng](https://github.com/ngkristina)
