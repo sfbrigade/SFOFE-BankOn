@@ -243,10 +243,10 @@ var MapsLib = {
   },
 
   printView: function() {
-    $('body > :not(#results_list').hide();
+    $('body > :not(#list_canvas').hide();
     $('link[href="http://bankonsanfrancisco.com/wp-content/themes/sf_bankon_v1/style.css"]').remove();
-    $('#results_list').appendTo('body');
-    $('#results_list').css("height", "100%");
+    $('#list_canvas').appendTo('body');
+    $('#list_canvas').css("height", "100%");
   },
   
   addrFromLatLng: function(latLngPoint) {
@@ -353,7 +353,7 @@ var MapsLib = {
     var data = json["rows"];
     var template = "";
 
-    var results = $("#results_list");
+    var results = $("#list_canvas");
     results.hide().empty(); //hide the existing list and empty it out first
 
     if (data == null) {
