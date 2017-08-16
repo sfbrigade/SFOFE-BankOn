@@ -6,6 +6,10 @@ It's based on [@derekeder/FusionTable-Map-Template](https://github.com/derekeder
 
 This work was done as part of the nationwide [2013 Code Across America](http://brigade.codeforamerica.org/pages/codeacross) event.
 
+## Source Fusion Table
+
+https://fusiontables.google.com/data?docid=1k61KXrFN6j1byAG7Uffc1ou1geO8Zz6umZQrmA8
+
 ## Filter Types
 - Location
 - Min Opening Deposit
@@ -20,3 +24,4 @@ This work was done as part of the nationwide [2013 Code Across America](http://b
 - [Felix Sargent](https://github.com/fsargent)
 - [Marc Chung](https://github.com/mchung)
 - [Kristina Ng](https://github.com/ngkristina)
+
