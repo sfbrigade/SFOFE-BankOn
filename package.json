@@ -1,0 +1,31 @@
+{
+  "name": "sfofe-bankon",
+  "version": "1.0.0",
+  "description": "This repository contains the artifacts for rendering a map of [banks recommended by the SF Office of Financial Empowerment](http://bankonsanfrancisco.com/map).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sfbrigade/SFOFE-BankOn.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sfbrigade/SFOFE-BankOn/issues"
+  },
+  "homepage": "https://github.com/sfbrigade/SFOFE-BankOn#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "eslint": "^4.4.1",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-config-airbnb-base": "^11.3.1",
+    "eslint-config-jquery": "^1.0.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.2.1"
+  }
+}
