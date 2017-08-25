@@ -1,3 +1,4 @@
+'use strict';
 
 /*!
  * Searchable Map Template with Google Fusion Tables
@@ -8,10 +9,10 @@
  * https://github.com/derekeder/FusionTable-Map-Template/wiki/License
  *
  * Date: 12/10/2012
- * Modified by Felix Sargent and Marc Chung for SFOFE
+ *
  */
 
-const MapsLib = {
+var MapsLib = {
 
   // Setup section - put your Fusion Table details here
   // Using the v1 Fusion Tables API. See https://developers.google.com/fusiontables/docs/v1/migration_guide for more info
@@ -42,19 +43,20 @@ const MapsLib = {
   initialize: function initialize() {
     $('#result_count').html('');
 
-    const myOptions = {
+    geocoder = new google.maps.Geocoder();
+    var myOptions = {
       zoom: MapsLib.defaultZoom,
       center: MapsLib.map_centroid,
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     map = new google.maps.Map($('#map_canvas')[0], myOptions);
 
     // maintains map centerpoint for responsive design
-    google.maps.event.addDomListener(map, 'idle', () => {
+    google.maps.event.addDomListener(map, 'idle', function () {
       MapsLib.calculateCenter();
     });
 
-    google.maps.event.addDomListener(window, 'resize', () => {
+    google.maps.event.addDomListener(window, 'resize', function () {
       map.setCenter(MapsLib.map_centroid);
     });
 
@@ -62,48 +64,48 @@ const MapsLib = {
 
     // reset filters
     $('#search_address').val(MapsLib.convertToPlainString($.address.parameter('address')));
-    const loadRadius = MapsLib.convertToPlainString($.address.parameter('radius'));
-    if (loadRadius !== '') $('#search_radius').val(loadRadius); else $('#search_radius').val(MapsLib.searchRadius);
+    var loadRadius = MapsLib.convertToPlainString($.address.parameter('radius'));
+    if (loadRadius !== '') $('#search_radius').val(loadRadius);else $('#search_radius').val(MapsLib.searchRadius);
 
     $('#result_count').hide();
 
     // run the default search
     MapsLib.doSearch();
   },
-  doSearch: function doSearch() {
+  doSearch: function doSearch(location) {
     MapsLib.clearSearch();
-    let address = $('#search_address').val();
+    var address = $('#search_address').val();
     MapsLib.searchRadius = $('#search_radius').val();
 
-    let whereClause = `${MapsLib.locationColumn} not equal to ''`;
+    var whereClause = MapsLib.locationColumn + ' not equal to \'\'';
 
     // -----custom filters-------
-    let typeColumn = 'Minimum Opening Deposit';
-    if ($('').is(':checked')) whereClause += ` AND ${typeColumn} < '$25'`;
+    var typeColumn = 'Minimum Opening Deposit';
+    if ($('').is(':checked')) whereClause += ' AND ' + typeColumn + ' < \'$25\'';
     typeColumn = '\'Available to customers who may have been reported to ChexSystems\'';
-    if ($('#cbChex').is(':checked')) whereClause += ` AND ${typeColumn}= 'Yes'`;
+    if ($('#cbChex').is(':checked')) whereClause += ' AND ' + typeColumn + '= \'Yes\'';
     typeColumn = '\'Accepts alternative forms of IDs (municipal, Consular, etc.)\'';
-    if ($('#cbAlternateID').is(':checked')) whereClause += ` AND ${typeColumn}= 'Yes'`;
+    if ($('#cbAlternateID').is(':checked')) whereClause += ' AND ' + typeColumn + '= \'Yes\'';
     typeColumn = '\'Accepts ITINs (individual tax identification number)\'';
-    if ($('#cbITIN').is(':checked')) whereClause += ` AND ${typeColumn}= 'Yes'`;
+    if ($('#cbITIN').is(':checked')) whereClause += ' AND ' + typeColumn + '= \'Yes\'';
     typeColumn = '\'Online account openings available (may only be available to US citizens)\'';
-    if ($('#cbRemoteAccount').is(':checked')) whereClause += ` AND ${typeColumn}= 'Yes'`;
+    if ($('#cbRemoteAccount').is(':checked')) whereClause += ' AND ' + typeColumn + '= \'Yes\'';
     typeColumn = '\'Free linked savings account to checking accounts\'';
-    if ($('#cbSavings').is(':checked')) whereClause += ` AND ${typeColumn}= 'Yes'`;
+    if ($('#cbSavings').is(':checked')) whereClause += ' AND ' + typeColumn + '= \'Yes\'';
     typeColumn = '\'Free mobile deposits\'';
-    if ($('#cbMobileDeposits').is(':checked')) whereClause += ` AND ${typeColumn}= 'Yes'`;
+    if ($('#cbMobileDeposits').is(':checked')) whereClause += ' AND ' + typeColumn + '= \'Yes\'';
     typeColumn = '\'Money orders available\'';
-    if ($('#cbMoneyOrders').is(':checked')) whereClause += ` AND ${typeColumn}= 'Yes'`;
+    if ($('#cbMoneyOrders').is(':checked')) whereClause += ' AND ' + typeColumn + '= \'Yes\'';
     typeColumn = '\'Credit building products\'';
-    if ($('#cbCreditBuilding').is(':checked')) whereClause += ` AND ${typeColumn}= 'Yes'`;
+    if ($('#cbCreditBuilding').is(':checked')) whereClause += ' AND ' + typeColumn + '= \'Yes\'';
     typeColumn = '\'Domestic wire transfer\'';
-    if ($('#cbDomesticWire').is(':checked')) whereClause += ` AND ${typeColumn}= 'Yes'`;
+    if ($('#cbDomesticWire').is(':checked')) whereClause += ' AND ' + typeColumn + '= \'Yes\'';
     typeColumn = '\'cbRemittance\'';
-    if ($('#cbRemittance').is(':checked')) whereClause += ` AND ${typeColumn}= 'Yes'`;
+    if ($('#cbRemittance').is(':checked')) whereClause += ' AND ' + typeColumn + '= \'Yes\'';
 
     typeColumn = '\'Minimum Opening Deposit\'';
     // whereClause += " AND " + typeColumn + " >= '" + $("#deposit-selected-start").html() + "'";
-    whereClause += ` AND ${typeColumn} <= '${$('#deposit-selected-end').html()}'`;
+    whereClause += ' AND ' + typeColumn + ' <= \'' + $('#deposit-selected-end').html() + '\'';
 
     /*
     typeColumn = "'Monthly Fee'";
@@ -114,12 +116,12 @@ const MapsLib = {
     // -------end of custom filters--------
 
     if (address !== '') {
-      if (address.toLowerCase().indexOf(MapsLib.locationScope) === -1) {
-        address = `${address} ${MapsLib.locationScope}`;
+      if (address.toLowerCase().indexOf(MapsLib.locationScope) == -1) {
+        address = address + ' ' + MapsLib.locationScope;
       }
-      const geocoder = new google.maps.Geocoder();
-      geocoder.geocode({ address }, (results, status) => {
-        if (status === google.maps.GeocoderStatus.OK) {
+
+      geocoder.geocode({ address: address }, function (results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
           MapsLib.currentPinpoint = results[0].geometry.location;
 
           $.address.parameter('address', encodeURIComponent(address));
@@ -129,18 +131,18 @@ const MapsLib = {
 
           MapsLib.addrMarker = new google.maps.Marker({
             position: MapsLib.currentPinpoint,
-            map,
+            map: map,
             icon: MapsLib.addrMarkerImage,
             animation: google.maps.Animation.DROP,
-            title: address,
+            title: address
           });
 
-          whereClause += ` AND ST_INTERSECTS(${MapsLib.locationColumn}, CIRCLE(LATLNG${MapsLib.currentPinpoint.toString()},${MapsLib.searchRadius}))`;
+          whereClause += ' AND ST_INTERSECTS(' + MapsLib.locationColumn + ', CIRCLE(LATLNG' + MapsLib.currentPinpoint.toString() + ',' + MapsLib.searchRadius + '))';
 
           MapsLib.drawSearchRadiusCircle(MapsLib.currentPinpoint);
           MapsLib.submitSearch(whereClause, map, MapsLib.currentPinpoint);
         } else {
-          alert(`We could not find your address: ${status}`);
+          alert('We could not find your address: ' + status);
         }
       });
     } else {
@@ -150,24 +152,22 @@ const MapsLib = {
   },
   submitSearch: function submitSearch(whereClause, map) {
     // get using all filters
-    // NOTE: styleId and templateId are recently added attributes to load custom marker styles 
-    // and info windowsyou can find your Ids inside the link generated by the 'Publish' option 
-    // in Fusion Tables for more details, 
-    // see https://developers.google.com/fusiontables/docs/v1/using#WorkingStyles
-
-    // console.log(whereClause);
-    // if (typeof _gaq !== 'undefined') {
-    //   _gaq.push(['_trackEvent', 'Search', 'query', whereClause]);
-    // }
+    // NOTE: styleId and templateId are recently added attributes to load custom marker styles and info windows
+    // you can find your Ids inside the link generated by the 'Publish' option in Fusion Tables
+    // for more details, see https://developers.google.com/fusiontables/docs/v1/using#WorkingStyles
+    console.log(whereClause);
+    if (typeof _gaq !== 'undefined') {
+      _gaq.push(['_trackEvent', 'Search', 'query', whereClause]);
+    }
 
     MapsLib.searchrecords = new google.maps.FusionTablesLayer({
       query: {
         from: MapsLib.fusionTableId,
         select: MapsLib.locationColumn,
-        where: whereClause,
+        where: whereClause
       },
       styleId: 2,
-      templateId: 2,
+      templateId: 2
     });
     MapsLib.searchrecords.setMap(map);
     MapsLib.getList(whereClause);
@@ -185,10 +185,10 @@ const MapsLib = {
   },
   findMe: function findMe() {
     // Try W3C Geolocation (Preferred)
-    let foundLocation;
+    var foundLocation = void 0;
 
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
+      navigator.geolocation.getCurrentPosition(function (position) {
         foundLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
         MapsLib.addrFromLatLng(foundLocation);
       }, null);
@@ -197,99 +197,110 @@ const MapsLib = {
     }
   },
   setResultsView: function setResultsView(e) {
-    const t = $('#view_mode');
-    return e === 'map' ? (
-      $('#list_canvas').hide(),
-      $('#map_canvas').show(),
-      google.maps.event.trigger(map, 'resize'),
-      map.setCenter(MapsLib.map_centroid),
-      MapsLib.doSearch(),
-      t.html('Show list <i class="icon-list icon-white"></i>')
-    ) : (
-      $('#list_canvas').show(),
-      $('#map_canvas').hide(),
-      t.html('Show map <i class="icon-map-marker icon-white"></i>'));
+    var t = $('#view_mode');
+    return e === 'map' ? ($('#list_canvas').hide(), $('#map_canvas').show(), google.maps.event.trigger(map, 'resize'), map.setCenter(MapsLib.map_centroid), MapsLib.doSearch(), t.html('Show list <i class="icon-list icon-white"></i>')) : ($('#list_canvas').show(), $('#map_canvas').hide(), t.html('Show map <i class="icon-map-marker icon-white"></i>'));
   },
 
   addrFromLatLng: function addrFromLatLng(latLngPoint) {
-    geocoder.geocode({ latLng: latLngPoint }, (results, status) => {
-      if (status === google.maps.GeocoderStatus.OK) {
+    geocoder.geocode({ latLng: latLngPoint }, function (results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
         if (results[1]) {
           $('#search_address').val(results[1].formatted_address);
           $('.hint').focus();
           MapsLib.doSearch();
         }
       } else {
-        alert(`Geocoder failed due to: ${status}`);
+        alert('Geocoder failed due to: ' + status);
       }
     });
   },
   drawSearchRadiusCircle: function drawSearchRadiusCircle(point) {
-    const circleOptions = {
+    var circleOptions = {
       strokeColor: '#4b58a6',
       strokeOpacity: 0.3,
       strokeWeight: 1,
       fillColor: '#4b58a6',
       fillOpacity: 0.05,
-      map,
+      map: map,
       center: point,
       clickable: false,
       zIndex: -1,
-      radius: parseInt(MapsLib.searchRadius, 10),
+      radius: parseInt(MapsLib.searchRadius)
     };
     MapsLib.searchRadiusCircle = new google.maps.Circle(circleOptions);
   },
   query: function query(selectColumns, whereClause, callback) {
-    const queryStr = [];
-    queryStr.push(`SELECT ${selectColumns}`);
-    queryStr.push(` FROM ${MapsLib.fusionTableId}`);
-    queryStr.push(` WHERE ${whereClause}`);
+    var queryStr = [];
+    queryStr.push('SELECT ' + selectColumns);
+    queryStr.push(' FROM ' + MapsLib.fusionTableId);
+    queryStr.push(' WHERE ' + whereClause);
 
-    const sql = encodeURIComponent(queryStr.join(' '));
-    $.ajax({ url: `https://www.googleapis.com/fusiontables/v1/query?sql=${sql}&callback=${callback}&key=${MapsLib.googleApiKey}`, dataType: 'jsonp' });
+    var sql = encodeURIComponent(queryStr.join(' '));
+    $.ajax({ url: 'https://www.googleapis.com/fusiontables/v1/query?sql=' + sql + '&callback=' + callback + '&key=' + MapsLib.googleApiKey, dataType: 'jsonp' });
   },
   handleError: function handleError(json) {
-    if (json.error !== undefined) {
-      const error = json.error.errors;
+    if (json.error != undefined) {
+      var error = json.error.errors;
       console.log('Error in Fusion Table call!');
-      error.forEach((row) => {
-        console.log(` Domain: ${row.domain}`);
-        console.log(` Reason: ${row.reason}`);
-        console.log(` Message: ${row.message}`);
-      });
+      for (var row in error) {
+        console.log(' Domain: ' + error[row].domain);
+        console.log(' Reason: ' + error[row].reason);
+        console.log(' Message: ' + error[row].message);
+      }
     }
   },
   getList: function getList(whereClause) {
-    let selectColumns = '\'Financial Institution\',\'Branch Name\',\'Address\',\'Phone Numbers\',\'Manager\',\'Hours\',\'Minimum Opening Deposit\',\'Minimum Balance\',\'Monthly Fee\',\'Checks included\',\'Check/Debit Card included\',\'Online Bill Pay\',\'Alternative IDs Accepted as Primary Identification\',\'Open Accounts for customers with ChexSystems History\',\'Remittance products available\',\'Wire Transfers\',\'Money Orders\',\'Offer Financial Education\',\'First Overdraft Fees Waived\',\'Overdraft Fee\'';
+    var selectColumns = '\'Financial Institution\', \
+                         \'Branch Name\', \
+                         \'Address\', \
+                         \'Phone Numbers\', \
+                         \'Manager\', \
+                         \'Hours\', \
+                         \'Minimum Opening Deposit\', \
+                         \'Minimum Balance\', \
+                         \'Monthly Fee\', \
+                         \'Checks included\', \
+                         \'Check/Debit Card included\', \
+                         \'Online Bill Pay\', \
+                         \'Alternative IDs Accepted as Primary Identification\', \
+                         \'Open Accounts for customers with ChexSystems History\', \
+                         \'Remittance products available\', \
+                         \'Wire Transfers\', \
+                         \'Money Orders\', \
+                         \'Offer Financial Education\', \
+                         \'First Overdraft Fees Waived\', \
+                         \'Overdraft Fees\', \
+                        ';
     selectColumns = '*';
     MapsLib.query(selectColumns, whereClause, 'MapsLib.displayList');
   },
   displayList: function displayList(json) {
     MapsLib.handleError(json);
-    const data = json.rows;
-    let template = '';
+    var data = json.rows;
+    var template = '';
 
-    const results = $('#list_canvas');
+    var results = $('#list_canvas');
     results.empty(); // hide the existing list and empty it out first
 
     if (data == null) {
       // clear results list
       results.append('<li><span class=\'lead\'>No results found</span></li>');
     } else {
-      data.forEach(
-        (row) => {
-          template = `${'<div class=\'row-fluid item-list\'><div class=\'span12\'><br /><h3>'}${row[0]} <small>${row[1]}</small></h3><strong>Address: </strong><a href='https://www.google.com/maps/?q=${row[2]}'>${row[2]}</a><br /><strong>Phone numbers: </strong><a href='tel:${row[8]}'>${row[8]}</a><br /><strong>Languages Spoken: </strong>${row[7]}<br /><strong>Hours: </strong>${row[6]}<br /><strong>Minimum opening deposit: </strong> $${row[9]}</div></div>`;
-          results.append(template);
-        }, this);
+      data.forEach(function (row) {
+        template = '<div class=\'row-fluid item-list\'><div class=\'span12\'><br /><h3>' + row[0] + ' <small>' + row[1] + '</small></h3><strong>Address: </strong><a href=\'https://www.google.com/maps/?q=' + row[2] + '\'>' + row[2] + '</a><br /><strong>Phone numbers: </strong><a href=\'tel:' + row[8] + '\'>' + row[8] + '</a><br /><strong>Languages Spoken: </strong>' + row[7] + '<br /><strong>Hours: </strong>' + row[6] + '<br /><strong>Minimum opening deposit: </strong> $' + row[9] + '</div></div>';
+        results.append(template);
+      }, this);
     }
   },
 
+  // maintains map centerpoint for responsive design
   calculateCenter: function calculateCenter() {
-    const center = map.getCenter();
+    center = map.getCenter();
   },
+
   // converts a slug or query string in to readable text
   convertToPlainString: function convertToPlainString(text) {
     if (text === undefined) return '';
     return decodeURIComponent(text);
-  },
+  }
 };
