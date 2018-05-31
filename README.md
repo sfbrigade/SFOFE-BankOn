@@ -14,12 +14,12 @@ This work was done as part of the nationwide [2013 Code Across America](http://b
 
 ## To update the data
 
-1. Request access to the [fusion table](https://fusiontables.google.com/data?docid=1k61KXrFN6j1byAG7Uffc1ou1geO8Zz6umZQrmA8).
+1. Request access to the [fusion table](https://fusiontables.google.com/data?docid=1TJE5qD4P2RmfvfM3dX8dDHJclnVnIO9rr3z7m_dG).
 1. Update individual rows, or wholesale update the table. Do not adjust the rows unless you want to majorly refactor the map.
 
 ## To modify filters
 
-See the `custom filters` section of `maps_lib.js`
+See the `custom filters` section of `maps_lib_v2.js`
 
 # Contributors
 
