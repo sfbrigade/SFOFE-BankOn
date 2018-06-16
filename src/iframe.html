@@ -24,7 +24,6 @@
   <script src="./maps_lib_v2.js" type="text/javascript"></script>
   <div class='container-fluid'>
     <div class='row'>
-      <div class='col-md-4'>
         <div class='well'>
           <h4>
             Address
@@ -56,19 +55,7 @@
             Reset
           </a>
         </div>
-        <div class='alert alert-info' id='result_box'>
-          <strong id='result_count'></strong>
-        </div>
-      </div>
-      <div class='col-md-8'>
-        <noscript>
-          <div class='alert alert-info'>
-            <h4>Your JavaScript is disabled</h4>
-            <p>Please enable JavaScript to view the map.</p>
-          </div>
-        </noscript>
         <div id='map_canvas'></div>
-      </div>
     </div>
   </div>
 
@@ -85,10 +72,11 @@
     $(function () {
       var myMap = new MapsLib({
         fusionTableId: "1TJE5qD4P2RmfvfM3dX8dDHJclnVnIO9rr3z7m_dG",
-        googleApiKey: "AIzaSyDthH2yfOy0EBq8fC-3JjWzrnXBjI7_GRg",
+        googleApiKey: "AIzaSyAxxv5Ke5SZvkEpx-q29Fgv_N4cIsjuFjo",
         locationColumn: "Address",
-        map_center: [37.7750, -122.4183],
+        map_center: [37.7525, -122.4476],
         locationScope: "San Francisco",
+        defaultZoom: 13
       });
 
       var autocomplete = new google.maps.places.Autocomplete(document.getElementById('search_address'));
