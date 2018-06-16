@@ -24,38 +24,38 @@
   <script src="./maps_lib_v2.js" type="text/javascript"></script>
   <div class='container-fluid'>
     <div class='row'>
-        <div class='well'>
-          <h4>
-            Address
-            <small>(
-              <a id='find_me' href='#'>find me</a>)</small>
-          </h4>
-          <p>
-            <input class='form-control' id='search_address' placeholder='Enter an address or an intersection' type='text' />
-          </p>
-          <p>
-            <label>
-              within
-              <select id='search_radius'>
-                <option value='400'>2 blocks</option>
-                <option value='805'>1/2 mile</option>
-                <option value='1610'>1 mile</option>
-                <option value='3220'>2 miles</option>
-              </select>
-            </label>
-          </p>
+      <div class='well'>
+        <h4>
+          Address
+          <small>(
+            <a id='find_me' href='#'>find me</a>)</small>
+        </h4>
+        <p>
+          <input class='form-control' id='search_address' placeholder='Enter an address or an intersection' type='text' />
+        </p>
+        <p>
+          <label>
+            within
+            <select id='search_radius'>
+              <option value='400'>2 blocks</option>
+              <option value='805'>1/2 mile</option>
+              <option value='1610'>1 mile</option>
+              <option value='3220'>2 miles</option>
+            </select>
+          </label>
+        </p>
 
-          <br />
-          <a class='btn btn-primary' id='search' href='#'>
-            <i class='glyphicon glyphicon-search'></i>
-            Search
-          </a>
-          <a class='btn btn-default' id='reset' href='#'>
-            <i class='glyphicon glyphicon-repeat'></i>
-            Reset
-          </a>
-        </div>
-        <div id='map_canvas'></div>
+        <br />
+        <a class='btn btn-primary' id='search' href='#'>
+          <i class='glyphicon glyphicon-search'></i>
+          Search
+        </a>
+        <a class='btn btn-default' id='reset' href='#'>
+          <i class='glyphicon glyphicon-repeat'></i>
+          Reset
+        </a>
+      </div>
+      <div id='map_canvas'></div>
     </div>
   </div>
 
