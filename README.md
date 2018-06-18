@@ -14,7 +14,7 @@ This work was done as part of the nationwide [2013 Code Across America](http://b
 
 ## To update the data
 
-1. Request access to the [fusion table](https://fusiontables.google.com/data?docid=1TJE5qD4P2RmfvfM3dX8dDHJclnVnIO9rr3z7m_dG).
+1. Request access to the [fusion table](https://fusiontables.google.com/data?docid=1tXLoeP51Ej1i9XOFpiTPKYINPHOMBSII1JSW-Tmu).
 1. Update individual rows, or wholesale update the table. Do not adjust the rows unless you want to majorly refactor the map.
 
 ## To modify filters
